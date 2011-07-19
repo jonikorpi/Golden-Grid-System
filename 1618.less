@@ -1,0 +1,40 @@
+/*
+	Golden: 		1.61803399
+	Super-golden: 	1.41421356
+*/
+
+@ratio: 1.61803399;
+
+html, body {
+	height: 100%;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+.ggs-guide {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 0.125em;
+	margin-left: -0.75em;
+	background: #fff;
+	border: solid #000;
+	border-width: 0 0.6875em;
+}
+
+	.ggs-1-left   {left: 100%/(@ratio);}
+	
+	.ggs-2-left   {left: 100%/(@ratio*@ratio);}
+	
+	.ggs-3-left   {left: 100%/(@ratio*@ratio*@ratio);}
+	.ggs-3-right {right: 100%/(@ratio*@ratio*@ratio);}
+	
+	.ggs-4-left   {left: 100%/(@ratio*@ratio*@ratio*@ratio);}
+	.ggs-4-right {right: 100%/(@ratio*@ratio*@ratio*@ratio);}
+	
+	.ggs-5-left   {left: 100%/(@ratio*@ratio*@ratio*@ratio*@ratio);}
+	.ggs-5-right {right: 100%/(@ratio*@ratio*@ratio*@ratio*@ratio);}
+	
+	.ggs-6-left   {left: 100%/(@ratio*@ratio*@ratio*@ratio*@ratio*@ratio);}
+	.ggs-6-right {right: 100%/(@ratio*@ratio*@ratio*@ratio*@ratio*@ratio);}

@@ -1,0 +1,47 @@
+/*
+	root(2): 1.41421356
+	
+	100% / root(2)^8 = 6.25%
+	320px * 0.0625 = 20px
+	
+	6.25% * 16 = 100%
+	12.5% * 8  = 100%
+	25%   * 4  = 100%
+	
+*/
+
+@ratio: 6.25%;
+
+html, body {
+	height: 100%;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+.ggs-guide {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 0.125em;
+	margin-left: -0.75em;
+	background: #fff;
+	border: solid #000;
+	border-width: 0 0.6875em;
+}
+
+	.ggs-1-left   {left: (@ratio);}
+	.ggs-2-left   {left: (@ratio*2);}
+	.ggs-3-left   {left: (@ratio*3);}
+	.ggs-4-left   {left: (@ratio*4);}
+	.ggs-5-left   {left: (@ratio*5);}
+	.ggs-6-left   {left: (@ratio*6);}
+	.ggs-7-left   {left: (@ratio*7);}
+	.ggs-8-left   {left: (@ratio*8);}
+	.ggs-9-left   {left: (@ratio*9);}
+	.ggs-10-left  {left: (@ratio*10);}
+	.ggs-11-left  {left: (@ratio*11);}
+	.ggs-12-left  {left: (@ratio*12);}
+	.ggs-13-left  {left: (@ratio*13);}
+	.ggs-14-left  {left: (@ratio*14);}
+	.ggs-15-left  {left: (@ratio*15);}
