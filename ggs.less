@@ -6,19 +6,24 @@
 *	
 */
 
+
+// 
 // The base font-size. Set this to one of the following:
-// -----------------------------------------------------
 // "16" for a base line-height of 1.500
 // "17" for a base line-height of 1.412
 // "18" for a base line-height of 1.333
-// -----------------------------------------------------
+//
 @font-size: 16;
 
+
+//
 // Do not change these.
-// -------------------------
+//
 @line: 24;
 @column: 100% / 18;
 @gold: 1.61803399;
+@em: @font-size*1em;
+
 
 /*
 *
@@ -41,25 +46,42 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote,
 *
 */
 
-html {height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
-body {min-height: 100%; font-size: 100%;}
-
+html {
+	height: 100%; 
+	-webkit-text-size-adjust: 100%; 
+	-ms-text-size-adjust: 100%;
+}
+body {
+	min-height: 100%; 
+	font-size: 100%;
+}
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, nav, section, audio, canvas, video {
 	display: block;
 }
-
-sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
-sup {top: -0.5em;}
-sub {bottom: -0.25em;}
-pre {white-space: pre; white-space: pre-wrap; word-wrap: break-word;}
-b, strong {font-weight: bold;}
-abbr[title] {border-bottom: 1px dotted;}
-
-img {border: 0; -ms-interpolation-mode: bicubic;}
-figure {position: relative;}
-figure img, figure object, figure embed, figure video {max-width: 100%; display: block;}
-
+sub, sup {
+	font-size: 75%; 
+	line-height: 0; 
+	position: relative; 
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+pre {
+	white-space: pre; 
+	white-space: pre-wrap; 
+	word-wrap: break-word;
+}
+b, strong {
+	font-weight: bold;
+}
+abbr[title] {
+	border-bottom: 1px dotted;
+}
 input, textarea, button, select {
 	margin: 0;
 	font-size: 100%;
@@ -77,7 +99,9 @@ input[type="checkbox"],
 input[type="radio"] {
     box-sizing: border-box;
 }
-textarea {overflow: auto;}
+textarea {
+	overflow: auto;
+}
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -86,35 +110,63 @@ table {
 
 /*
 *
-*	Type presets
+*	Simple fluid media
+*
+*/
+
+figure {
+	position: relative;
+}
+figure img, figure object, figure embed, figure video {
+	max-width: 100%; 
+	display: block;
+}
+img {
+	border: 0; 
+	-ms-interpolation-mode: bicubic;
+}
+
+
+/*
+*
+*	Type size presets
 *
 */
 
 body {
-	font-size: @font-size / 16 * 1em; // 16, 17, 18
-	line-height: @line / @font-size * 1em; // 24 px
+	font-size: @font-size / 16 * 1em; // 16, 17, 18 px
+	line-height: @line / @em; // 24 px
 }
 
-h3 {
-	font-size: (@font-size*@gold) * 1em; // 25.888, 27.506, 29.124
+.small, small {
+	font-size: (@font-size*0.75) / @em; // 12, 12.75, 13.5 px
+	line-height: (@line*0.75) / (@font-size*0.75) * 1em; // 18 px
+}
+
+.normal, h4 {
+	font-size: @font-size / @em; // 16, 17, 18 px
+	line-height: @line / @em; // 24 px
+}
+
+.large, h3 {
+	font-size: (@font-size*@gold) / @em; // 25.888, 27.506, 29.124 px
 	line-height: (@line*1.5)/(@font-size*@gold)*1em; // 36 px
 }
 
-h2 {
-	font-size: (@font-size*@gold*@gold) * 1em; // 41.886784, 44.504708, 47.122632
+.huge, h2 {
+	font-size: (@font-size*@gold*@gold) / @em; // 41.886784, 44.504708, 47.122632
 	line-height: (@line*2) / (@font-size*@gold*@gold) * 1em; // 48 px
 }
 
-h1 {
-	font-size: (@font-size*@gold*@gold*@gold) * 1em; // 67.772816512, 72.008617544, 76.244418576
+.massive, h1 {
+	font-size: (@font-size*@gold*@gold*@gold) / @em; // 67.772816512, 72.008617544, 76.244418576
 	line-height: (@line*3) / (@font-size*@gold*@gold*@gold) * 1em; // 72 px
 }
 
-.huge {
-	font-size: (@font-size*@gold*@gold*@gold*@gold) * 1em; // 109.656417116, 116.509943186, 123.363469256
+.gigantic {
+	font-size: (@font-size*@gold*@gold*@gold*@gold) / @em; // 109.656417116, 116.509943186, 123.363469256
 	line-height: (@line*5) / (@font-size*@gold*@gold*@gold*@gold) * 1em; // 120 px
 }
-
 
 /*
 *
@@ -122,12 +174,12 @@ h1 {
 *
 */
 
-body, input, textarea, button, select, textarea {
-	font-family: sans-serif;
+body, input, textarea, button, select {
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 pre, code {
-	font-family: monospace;
+	font-family: Menlo, Monaco, monospace;
 }
 
 
@@ -140,6 +192,11 @@ pre, code {
 body {
 	background: #fff;
 	color: #000;
+}
+
+#masthead {
+	padding: 12/@em;
+	margin: 96/@em @column 60/@em;
 }
 
 @media screen and () {

@@ -136,20 +136,6 @@ b, strong {
 abbr[title] {
   border-bottom: 1px dotted;
 }
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-}
-figure {
-  position: relative;
-}
-figure img,
-figure object,
-figure embed,
-figure video {
-  max-width: 100%;
-  display: block;
-}
 input,
 textarea,
 button,
@@ -178,27 +164,54 @@ table {
 }
 /*
 *
-*	Type presets
+*	Simple fluid media
+*
+*/
+figure {
+  position: relative;
+}
+figure img,
+figure object,
+figure embed,
+figure video {
+  max-width: 100%;
+  display: block;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+/*
+*
+*	Type size presets
 *
 */
 body {
   font-size: 1em;
   line-height: 1.5em;
 }
-h3 {
-  font-size: 25.88854384em;
+.small, small {
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+.normal, h4 {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.large, h3 {
+  font-size: 1.61803399em;
   line-height: 1.3905764736128936em;
 }
-h2 {
-  font-size: 41.888543884725124em;
+.huge, h2 {
+  font-size: 2.6180339927953202em;
   line-height: 1.1458980319796566em;
 }
-h1 {
-  font-size: 67.7770877970919em;
+.massive, h1 {
+  font-size: 4.236067987318243em;
   line-height: 1.062305896286817em;
 }
-.huge {
-  font-size: 109.6656317989089em;
+.gigantic {
+  font-size: 6.8541019874318065em;
   line-height: 1.0942352497457086em;
 }
 /*
@@ -210,12 +223,11 @@ body,
 input,
 textarea,
 button,
-select,
-textarea {
-  font-family: sans-serif;
+select {
+  font-family: Helvetica, Arial, sans-serif;
 }
 pre, code {
-  font-family: monospace;
+  font-family: Menlo, Monaco, monospace;
 }
 /*
 *
@@ -225,6 +237,10 @@ pre, code {
 body {
   background: #fff;
   color: #000;
+}
+#masthead {
+  padding: 0.75em;
+  margin: 6em 5.555555555555555% 3.75em;
 }
 @media screen and () {
   body {
