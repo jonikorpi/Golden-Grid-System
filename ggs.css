@@ -1,0 +1,233 @@
+/*
+*
+*	Golden Grid System (1.0a) 	http://???.com/
+*	by Joni Korpi 				http://jonikorpi.com/
+*	licensed under MIT			http://opensource.org/licenses/mit-license.php
+*	
+*/
+/*
+*
+*	Margin, padding, and border resets
+*	except for form elements
+*
+*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+menu,
+time,
+mark,
+audio,
+video,
+canvas {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/*
+*
+*	Consistency fixes
+*	adopted from http://necolas.github.com/normalize.css/
+*
+*/
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  min-height: 100%;
+  font-size: 100%;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+audio,
+canvas,
+video {
+  display: block;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+b, strong {
+  font-weight: bold;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+figure {
+  position: relative;
+}
+figure img,
+figure object,
+figure embed,
+figure video {
+  max-width: 100%;
+  display: block;
+}
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  font-size: 100%;
+  line-height: normal;
+  vertical-align: baseline;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+}
+textarea {
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*
+*
+*	Type presets
+*
+*/
+body {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+h3 {
+  font-size: 25.88854384em;
+  line-height: 1.3905764736128936em;
+}
+h2 {
+  font-size: 41.888543884725124em;
+  line-height: 1.1458980319796566em;
+}
+h1 {
+  font-size: 67.7770877970919em;
+  line-height: 1.062305896286817em;
+}
+.huge {
+  font-size: 109.6656317989089em;
+  line-height: 1.0942352497457086em;
+}
+/*
+*
+*	Typography
+*
+*/
+body,
+input,
+textarea,
+button,
+select,
+textarea {
+  font-family: sans-serif;
+}
+pre, code {
+  font-family: monospace;
+}
+/*
+*
+*	Layouts
+*
+*/
+body {
+  background: #fff;
+  color: #000;
+}
+@media screen and () {
+  body {
+    font-size: 1.0625em;
+  }
+}
