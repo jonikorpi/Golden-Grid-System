@@ -6,16 +6,16 @@
 *	
 */
 
-var guideColor = 'rgb(255,195,0)';
-var guideInnerColor = 'white';
-var guideOpacity = '0.764';
+var guideColor = 		'rgb(255,195,0)';
+var guideInnerColor = 	'white';
+var guideOpacity = 		'0.764';
 
-var switchColor = 'black';
-var switchOpacity = '1';
-var switchCharacter = '&#9776;';
+var switchColor = 		'black';
+var switchOpacity = 	'1';
+var switchCharacter = 	'&#9776;';
 
-var eightColBreakpoint = '767px';
-var sixteenColBreakpoint = '1887px';
+var eightColBreakpoint = 	'767px';
+var sixteenColBreakpoint = 	'1887px';
 
 
 /*!
@@ -44,8 +44,8 @@ $.domReady(function () {
 		html{height:100%;position:relative;}\
 		#ggs-switch{position:fixed;top:0;right:0;z-index:9500; cursor:pointer; font-size: 24px; line-height:1; padding: 12px; color:'+switchColor+'; opacity:'+switchOpacity+'; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: all 0.145s ease-out; -moz-transition: all 0.145s ease-out; transition: all 0.145s ease-out;}\
 		.ggs-animated #ggs-switch {-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg);}\
-		.ggs-guide{position:absolute;top:0;z-index:9000;height:100%;margin-left:-0.75em;border:solid '+guideColor+';border-width:0 0.75em;background:'+guideColor+';opacity:'+guideOpacity+'; -webkit-transition: all 0.235s ease-out; -moz-transition: all 0.235s ease-out; transition: all 0.235s ease-out;}\
-		.ggs-animated .ggs-guide {-webkit-transform: translate(0,-100%); -moz-transform: translate(0,-100%); transform: translate(0,-100%); opacity: 0;}\
+		.ggs-guide{position:fixed;top:0;z-index:9000;height:100%;margin-left:-0.75em;border:solid '+guideColor+';border-width:0 0.75em;background:'+guideColor+';opacity:'+guideOpacity+'; -webkit-transition: all 0.235s ease-out; -moz-transition: all 0.235s ease-out; transition: all 0.235s ease-out;}\
+		.ggs-animated .ggs-guide {-webkit-transform: translate(0, -100%); -moz-transform: translate(0,-100%); transform: translate(0,-100%); opacity: 0;}\
 		.ggs-hidden .ggs-guide {display: none;}\
 		.ggs-0{left:0;}\
 		.ggs-1{left:11.11111111111111%;}\
