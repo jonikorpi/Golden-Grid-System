@@ -7,7 +7,7 @@
 */
 
 var guideColor = 		'rgb(255,195,0)';
-var guideInnerColor = 	'white';
+var guideInnerColor = 	'rgba(255,255,255, 0.91)';
 var guideOpacity = 		'0.764';
 
 var switchColor = 		'black';
@@ -42,10 +42,10 @@ $.domReady(function () {
 /* 	Create CSS */
 	var styles = '\
 		html{height:100%;position:relative;}\
-		#ggs-switch{position:fixed;top:0;right:0;z-index:9500; cursor:pointer; font-size: 24px; line-height:1; padding: 12px; color:'+switchColor+'; opacity:'+switchOpacity+'; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: all 0.145s ease-out; -moz-transition: all 0.145s ease-out; transition: all 0.145s ease-out;}\
+		#ggs-switch{position:fixed;top:0;right:0;z-index:9500; cursor:pointer; font-size: 24px; line-height:1; padding: 12px; color:'+switchColor+'; opacity:'+switchOpacity+'; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: all 0.145s ease-out; -moz-transition: all 0.145s ease-out; -ms-transition: all 0.145s ease-out; transition: all 0.145s ease-out;}\
 		.ggs-animated #ggs-switch {-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg);}\
-		.ggs-guide{position:fixed;top:0;z-index:9000;height:100%;margin-left:-0.75em;border:solid '+guideColor+';border-width:0 0.75em;background:'+guideColor+';opacity:'+guideOpacity+'; -webkit-transition: all 0.235s ease-out; -moz-transition: all 0.235s ease-out; transition: all 0.235s ease-out;}\
-		.ggs-animated .ggs-guide {-webkit-transform: translate(0, -100%); -moz-transform: translate(0,-100%); transform: translate(0,-100%); opacity: 0;}\
+		.ggs-guide{position:fixed;top:0;z-index:9000;height:100%;margin-left:-0.75em;border:solid '+guideColor+';border-width:0 0.75em;background:'+guideColor+';opacity:'+guideOpacity+'; -webkit-transition: all 0.235s ease-out; -moz-transition: all 0.235s ease-out; -ms-transition: all 0.235s ease-out; transition: all 0.235s ease-out;}\
+		.ggs-animated .ggs-guide {-webkit-transform: scale(0, 1); -moz-transform: scale(0, 1); -ms-transform: scale(0, 1); transform: scale(0, 1); opacity: 0;}\
 		.ggs-hidden .ggs-guide {display: none;}\
 		.ggs-0{left:0;}\
 		.ggs-1{left:11.11111111111111%;}\
@@ -65,7 +65,7 @@ $.domReady(function () {
 		.ggs-15{left:88.88888888888889%;}\
 		.ggs-16{right:0;}\
 		.ggs-0,.ggs-16{width:5.555555555555555%;padding-right:0.75em;border:0;margin:0;}\
-		.ggs-guide div{background:'+guideInnerColor+';width:1px;height:100%;position:absolute;left:0;top:0;}\
+		.ggs-guide div{background:'+guideInnerColor+';width:2px;height:100%;position:absolute;left:-1px;top:0;}\
 		.ggs-0 div{left:auto;right:0.75em;}\
 		.ggs-16 div{left:0.75em;}\
 		@media screen and (max-width: '+eightColBreakpoint+'){.ggs-2,.ggs-6,.ggs-10,.ggs-14{display:none;}}\
