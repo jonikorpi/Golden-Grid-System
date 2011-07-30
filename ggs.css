@@ -231,7 +231,7 @@ input,
 textarea,
 button,
 select {
-  font-family: ff-dagny-web-pro, sans-serif;
+  font-family: Helvetica, ff-dagny-web-pro, sans-serif;
 }
 pre, code {
   font-family: Menlo, Monaco, monospace;
@@ -247,7 +247,7 @@ body {
 }
 #masthead {
   padding: 0.75em;
-  margin: 6em 5.555555555555555% 3.75em;
+  margin: 0 5.555555555555555%;
 }
 @media screen and () {
   body {
