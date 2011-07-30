@@ -245,9 +245,14 @@ body {
   background: #fff;
   color: #000;
 }
-#masthead {
-  padding: 0.75em;
+#masthead,
+#navigation,
+#content,
+#colophon {
   margin: 0 5.555555555555555%;
+}
+.wrapper {
+  padding: 0 0.75em;
 }
 @media screen and () {
   body {

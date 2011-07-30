@@ -1,27 +1,118 @@
 <!doctype html>
 <!--[if lt IE 9]><html class="ie"><![endif]-->
 <!--[if gte IE 9]><!--><html><!--<![endif]-->
+
+<!--
+The comment jumble above is handy for targeting old IE with CSS.
+http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+-->
 	
 	<head>
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-		
 		<title>Golden Grid System Demo</title>
 		
+		<!-- Please don't add "maximum-scale=1" here. It's bad for accessibility. -->
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<script type="text/javascript" src="http://use.typekit.com/xoy3bkl.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		<link rel="stylesheet" href="ggs.css"/>
-		<script src="gridlet/gridlet.js"></script>
+		
+		<!-- Feel free to split the CSS into separate files, if you like. -->
+		<link rel="stylesheet" href="ggs.css"/> 
+		
+		<!-- Here's Gridlet, the grid overlay script. -->
+		<script src="gridlet.js"></script>
+		
+		<!-- 
+		This script enables structural HTML5 elements in old IE.
+		http://code.google.com/p/html5shim/
+		-->
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 	</head>
 	
 	<body lang="en">
-	
-		<header id="masthead">
-			<h1>
-				Golden Grid System
-			</h1>
+		
+		<!-- Demo code begins -->
+		
+		<header>
+			<div class="wrapper">
+				<h1>A Golden Demonstration</h1>
+				<h2>
+					Try resizing your browser or viewing this page on different devices. Use the icon in the upper right corner to see an overlay of the grid.
+				</h2>
+			</div>
 		</header>
+		
+		<article id="twoway">
+			<section class="wrapper">
+				<h3>A two-way split</h3>
+				<p>
+					These two blocks of text will float side by side with some empty columns on the sides on large screens. On medium-sized screens the empty columns will disappear, and on small screens the blocks will be stacked vertically.
+				</p>
+			</section>
+			<section class="wrapper">
+				<h3>By the way</h3>
+				<p>
+					If you're viewing this page on an iOS device, it might zoom in wonkily when you rotate your device. This is because of a Mobile Safari bug, described here: <a href="http://filamentgroup.com/examples/iosScaleBug/">http://filamentgroup.com/examples/iosScaleBug/</a>.
+				</p>
+			</section>
+		</article>
+		
+		<article id="photos">
+			<section class="wrapper">
+				<h3>Imagine these are photos</h3>
+			</section>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+			<div class="wrapper"><div class="photo"></div></div>
+		</article>
+		
+		<!-- Demo code ends -->
 			
 	</body>
 	
