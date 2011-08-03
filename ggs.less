@@ -7,23 +7,14 @@
 */
 
 @import 'helpful-LESS-functions.less';
-// 
-// The base font-size. Set this to one of the following:
-// "16" for a base line-height of 1.500
-// "17" for a base line-height of 1.412
-// "18" for a base line-height of 1.333
-//
-@font-size: 16;
-
 
 //
-// Do not change these.
+// Important numbers
 //
 @line: 24;
 @column: 100% / 18;
-@gold: 1.61803399;
+@font-size: 16;
 @em: @font-size*1em;
-
 
 /*
 *
@@ -134,38 +125,38 @@ img {
 */
 
 body {
-	font-size: @font-size / 16 * 1em; // 16, 17, 18 px
+	font-size: @font-size / 16 * 1em; // 16px
 	line-height: @line / @em; // 24 px
 }
 
-.small, small {
-	font-size: (@font-size*0.75) / @em; // 12, 12.75, 13.5 px
-	line-height: (@line*0.75) / (@font-size*0.75) * 1em; // 18 px
+.small, small, #copyright p {
+	font-size: (@font-size*0.8125) / @em; // 13px
+	line-height: (@line*0.75) / (@font-size*0.8125) * 1em; // 18px
 }
 
-.normal, h4 {
-	font-size: @font-size / @em; // 16, 17, 18 px
-	line-height: @line / @em; // 24 px
+.normal, h4, h3 {
+	font-size: @font-size / @em; // 16px
+	line-height: @line / @em; // 24px
 }
 
-.large, h3 {
-	font-size: (@font-size*@gold) / @em; // 25.888, 27.506, 29.124 px
-	line-height: (@line*1.5)/(@font-size*@gold)*1em; // 36 px
+.large, h2, h1, .icon {
+	font-size: 26 / @em; // 26px
+	line-height: (@line*1.5) / 26 * 1em; // 36 px
 }
 
-.huge, h2 {
-	font-size: (@font-size*@gold*@gold) / @em; // 41.886784, 44.504708, 47.122632
-	line-height: (@line*2) / (@font-size*@gold*@gold) * 1em; // 48 px
+.huge {
+	font-size: 42 / @em; // 42px
+	line-height: (@line*2) / 42 * 1em; // 48 px
 }
 
-.massive, h1 {
-	font-size: (@font-size*@gold*@gold*@gold) / @em; // 67.772816512, 72.008617544, 76.244418576
-	line-height: (@line*3) / (@font-size*@gold*@gold*@gold) * 1em; // 72 px
+.massive {
+	font-size: 68 / @em; // 68px
+	line-height: (@line*3) / 68 * 1em; // 72 px
 }
 
 .gigantic {
-	font-size: (@font-size*@gold*@gold*@gold*@gold) / @em; // 109.656417116, 116.509943186, 123.363469256
-	line-height: (@line*5) / (@font-size*@gold*@gold*@gold*@gold) * 1em; // 120 px
+	font-size: 110 / @em; // 110px
+	line-height: (@line*5) / 110 * 1em; // 120 px
 }
 
 /*
@@ -182,28 +173,294 @@ pre, code {
 	font-family: Menlo, Monaco, monospace;
 }
 
+#content p, #content figure {
+	margin-top: 12/@em;
+}
+
+h2 {
+	margin-top: 24 / 26*1em;
+}
+
+h3 {
+	margin-top: 24/@em;
+}
+
 
 /*
 *
-*	Layouts
+*	Colours
+*
+*/
+
+@background: 	rgb(255,255,255);
+@body: 			rgb(0,0,0);
+@gold: 			rgb(255,195,0);
+
+a {
+	text-decoration: none;
+}
+
+
+/*
+*
+*	Narrow Layout
+*	---------------------
+*	cols  1   2   3   4
+*	%     25  50  75  100
 *
 */
 
 body {
-	background: #fff;
-	color: #000;
+	background: @background;
+	color: @body;
 }
 
-#masthead, #navigation, #content, #colophon {
+	.ie body {
+		width: 640px;
+		font-size: (@font-size + 1) / @em;
+	}
+
+#masthead, #content, #colophon .inner {
 	margin: 0 @column;
 }
 
 .wrapper {
 	padding: 0 12/@em;
+	position: relative;
 }
 
-@media screen and () {
-	body {
-		font-size: (@font-size + 1) / 16 * 1em;
+#masthead {
+	padding: 36/@em 0 24/@em;
+}
+
+#guides {
+	height: 144/@em;
+	background: @gold;
+}
+
+#content {
+	margin-bottom: 48/@em;
+}
+
+	figure img {
+		width: 100%;
+		height: 240/@em;
 	}
+
+#colophon {
+	clear: both;
+	padding: 35/@em 0 0;
+	border-top: 1/@em solid @body;
+}
+
+	#colophon section {
+		margin-bottom: 24/@em;
+	}
+
+	#colophon h3 {
+		margin: 0 0 12/@em;
+	}
+	
+	#author a, #promo a {
+		padding-left: 84/@em;
+		min-height: 72/@em;
+		display: block;
+		position: relative;
+	}
+	
+		.ie #author a, .ie #promo a {
+			height: 72/@em;
+		}
+	
+		#colophon img {
+			position: absolute;
+			left: 0; top: 0;
+			width: 72/@em;
+			height: 72/@em;
+		}
+	
+	#follow {
+		clear: both;
+	}
+	
+	#copyright {
+		margin: 0;
+		padding-bottom: 48/@em;
+	}
+
+@media screen and (min-width: 480px) {
+
+	#guides {
+		height: 120/@em;
+	}
+
+}
+
+
+@media screen and (min-width: 640px) {
+	
+	body {
+		font-size: (@font-size + 1) / @em;
+	}
+	
+	#guides {
+		height: 192/@em;
+	}
+	
+	#colophon section {
+		width: 50%;
+		float: left;
+	}
+	
+	#copyright p {
+		.normal();
+	}
+	
+	#follow {
+		padding-bottom: 48/@em;
+	}
+	
+}
+
+/*
+*
+*	Portrait Layout
+*	---------------------------------------------
+*	cols  1     2   3     4   5     6   7     8
+*	%     12.5  25  37.5  50  62.5  75  87.5  100
+*
+*/
+
+@media screen and (min-width: 720px) {
+	
+	body {
+		font-size: (@font-size) / @em;
+	}
+	
+	#guides {
+		height: 252/@em;
+	}
+	
+	#masthead {
+		padding: 48/@em 0 24/@em;
+	}
+	
+	#content .wrapper {
+		margin: 0 12.5%;
+	}
+	
+	h1 {
+		.huge();
+	}
+	
+	#masthead p {
+		.large();
+	}
+	
+}
+
+@media screen and (min-width: 888px) {
+	
+	body {
+		font-size: (@font-size + 1) / @em;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	
+	body {
+		font-size: (@font-size) / @em;
+	}
+	
+	#content {
+		float: left;
+	}
+	
+	#content .wrapper {
+		margin: 0;
+	}
+	
+	#features section, #code, #gridlet {
+		width: 50%;
+		float: left;
+	}
+	
+		#features section:nth-of-type(2n+1), #code {
+			clear: left;
+		}
+	
+		#features header {
+			width: 75%;
+		}
+		
+	h2 {
+		.huge();
+		margin-top: 36 / 42*1em;
+	}
+	
+	#content header p, h3 {
+		.large();
+	}
+	
+	#content header p {
+		margin-top: 12/26*1em;
+	}
+	
+	#colophon h3 {
+		margin-bottom: 12/26*1em;
+	}
+	
+}
+
+@media screen and (min-width: 1200px) {
+	
+	body {
+		font-size: (@font-size + 1) / @em;
+	}
+}
+
+@media screen and (min-width: 1392px) {
+	
+	body {
+		font-size: (@font-size) / @em;
+	}
+	
+	#masthead, #content, #colophon .inner {
+		margin-left: @column*3;
+		margin-right: @column*3;
+	}
+}
+
+@media screen and (min-width: 1680px) {
+	
+	body {
+		font-size: (@font-size + 1) / @em;
+	}
+}
+
+@media screen and (min-width: 1872px) {
+	
+	#masthead {
+		padding: 72/@em 0 48/@em;
+	}
+	
+	h1 {
+		.massive();
+	}
+	
+	#masthead p {
+		.huge();
+	}
+	
+	#guides {
+		height: 384/@em;
+	}
+}
+
+@media screen and (min-width: 2496px) {
+	
+	body {
+		font-size: (@font-size + 2) / @em;
+	}
+	
 }

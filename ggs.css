@@ -197,29 +197,32 @@ body {
   font-size: 1em;
   line-height: 1.5em;
 }
-.small, small {
-  font-size: 0.75em;
-  line-height: 1.5em;
+.small, small, #copyright p {
+  font-size: 0.8125em;
+  line-height: 1.3846153846153846em;
 }
-.normal, h4 {
+.normal, h4, h3 {
   font-size: 1em;
   line-height: 1.5em;
 }
-.large, h3 {
-  font-size: 1.61803399em;
-  line-height: 1.3905764736128936em;
+.large,
+h2,
+h1,
+.icon {
+  font-size: 1.625em;
+  line-height: 1.3846153846153846em;
 }
-.huge, h2 {
-  font-size: 2.6180339927953202em;
-  line-height: 1.1458980319796566em;
+.huge {
+  font-size: 2.625em;
+  line-height: 1.1428571428571428em;
 }
-.massive, h1 {
-  font-size: 4.236067987318243em;
-  line-height: 1.062305896286817em;
+.massive {
+  font-size: 4.25em;
+  line-height: 1.0588235294117647em;
 }
 .gigantic {
-  font-size: 6.8541019874318065em;
-  line-height: 1.0942352497457086em;
+  font-size: 6.875em;
+  line-height: 1.0909090909090908em;
 }
 /*
 *
@@ -236,26 +239,226 @@ select {
 pre, code {
   font-family: Menlo, Monaco, monospace;
 }
+#content p, #content figure {
+  margin-top: 0.75em;
+}
+h2 {
+  margin-top: 0.9230769230769231em;
+}
+h3 {
+  margin-top: 1.5em;
+}
 /*
 *
-*	Layouts
+*	Colours
+*
+*/
+a {
+  text-decoration: none;
+}
+/*
+*
+*	Narrow Layout
+*	---------------------
+*	cols  1   2   3   4
+*	%     25  50  75  100
 *
 */
 body {
-  background: #fff;
-  color: #000;
+  background: #ffffff;
+  color: #000000;
 }
-#masthead,
-#navigation,
-#content,
-#colophon {
+.ie body {
+  width: 640px;
+  font-size: 1.0625em;
+}
+#masthead, #content, #colophon .inner {
   margin: 0 5.555555555555555%;
 }
 .wrapper {
   padding: 0 0.75em;
+  position: relative;
 }
-@media screen and () {
+#masthead {
+  padding: 2.25em 0 1.5em;
+}
+#guides {
+  height: 9em;
+  background: #ffc300;
+}
+#content {
+  margin-bottom: 3em;
+}
+figure img {
+  width: 100%;
+  height: 15em;
+}
+#colophon {
+  clear: both;
+  padding: 2.1875em 0 0;
+  border-top: 0.0625em solid #000000;
+}
+#colophon section {
+  margin-bottom: 1.5em;
+}
+#colophon h3 {
+  margin: 0 0 0.75em;
+}
+#author a, #promo a {
+  padding-left: 5.25em;
+  min-height: 4.5em;
+  display: block;
+  position: relative;
+}
+.ie #author a, .ie #promo a {
+  height: 4.5em;
+}
+#colophon img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4.5em;
+  height: 4.5em;
+}
+#follow {
+  clear: both;
+}
+#copyright {
+  margin: 0;
+  padding-bottom: 3em;
+}
+@media screen and (min-width: 480px) {
+  #guides {
+    height: 7.5em;
+  }
+}
+@media screen and (min-width: 640px) {
   body {
     font-size: 1.0625em;
+  }
+  #guides {
+    height: 12em;
+  }
+  #colophon section {
+    width: 50%;
+    float: left;
+  }
+  #copyright p {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+  #follow {
+    padding-bottom: 3em;
+  }
+}
+/*
+*
+*	Portrait Layout
+*	---------------------------------------------
+*	cols  1     2   3     4   5     6   7     8
+*	%     12.5  25  37.5  50  62.5  75  87.5  100
+*
+*/
+@media screen and (min-width: 720px) {
+  body {
+    font-size: 1em;
+  }
+  #guides {
+    height: 15.75em;
+  }
+  #masthead {
+    padding: 3em 0 1.5em;
+  }
+  #content .wrapper {
+    margin: 0 12.5%;
+  }
+  h1 {
+    font-size: 2.625em;
+    line-height: 1.1428571428571428em;
+  }
+  #masthead p {
+    font-size: 1.625em;
+    line-height: 1.3846153846153846em;
+  }
+}
+@media screen and (min-width: 888px) {
+  body {
+    font-size: 1.0625em;
+  }
+}
+@media screen and (min-width: 960px) {
+  body {
+    font-size: 1em;
+  }
+  #content {
+    float: left;
+  }
+  #content .wrapper {
+    margin: 0;
+  }
+  #features section, #code, #gridlet {
+    width: 50%;
+    float: left;
+  }
+  #features section:nth-of-type(2n+1), #code {
+    clear: left;
+  }
+  #features header {
+    width: 75%;
+  }
+  h2 {
+    font-size: 2.625em;
+    line-height: 1.1428571428571428em;
+    margin-top: 0.8571428571428571em;
+  }
+  #content header p, h3 {
+    font-size: 1.625em;
+    line-height: 1.3846153846153846em;
+  }
+  #content header p {
+    margin-top: 0.46153846153846156em;
+  }
+  #colophon h3 {
+    margin-bottom: 0.46153846153846156em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 1.0625em;
+  }
+}
+@media screen and (min-width: 1392px) {
+  body {
+    font-size: 1em;
+  }
+  #masthead, #content, #colophon .inner {
+    margin-left: 16.666666666666664%;
+    margin-right: 16.666666666666664%;
+  }
+}
+@media screen and (min-width: 1680px) {
+  body {
+    font-size: 1.0625em;
+  }
+}
+@media screen and (min-width: 1872px) {
+  #masthead {
+    padding: 4.5em 0 3em;
+  }
+  h1 {
+    font-size: 4.25em;
+    line-height: 1.0588235294117647em;
+  }
+  #masthead p {
+    font-size: 2.625em;
+    line-height: 1.1428571428571428em;
+  }
+  #guides {
+    height: 24em;
+  }
+}
+@media screen and (min-width: 2496px) {
+  body {
+    font-size: 1.125em;
   }
 }

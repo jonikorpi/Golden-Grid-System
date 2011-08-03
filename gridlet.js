@@ -8,14 +8,14 @@
 
 var guideColor = 'rgb(255,195,0)';
 var guideInnerColor = 'rgba(255,255,255, 0.91)';
-var guideOpacity = '0.764';
+var guideOpacity = '0.618';
 
 var switchColor = 'black';
 var switchOpacity = '1';
 var switchCharacter = '&#9776;';
 
-var eightColBreakpoint = '767px';
-var sixteenColBreakpoint = '1887px';
+var eightColBreakpoint = '719px';
+var sixteenColBreakpoint = '1871px';
 
 
 /*!
