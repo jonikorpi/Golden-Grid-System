@@ -16,6 +16,8 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="apple-touch-icon" sizes="114x114" href="icon.png"/>
 	</head>
 	
 	<body lang="en">
@@ -26,7 +28,7 @@
 					Golden Grid System
 				</h1>
 				<p>
-					An infinitely scaling grid for respon&shy;sive web&nbsp;design.
+					An infinite grid for respon&shy;sive web design.
 				</p>
 			</div>
 		</header>
@@ -36,129 +38,133 @@
 		</figure>
 		
 		<article id="content">
+		
 			<section id="features">
-				<header>
-					<div class="wrapper">
-						<h2>Features</h2>
-						<p>The main idea of Golden Grid System… fluid columns, elastic gutters, and a zoomable baseline grid.</p>
-					</div>
+				<header class="wrapper">
+					<h2>Features</h2>
+					<p>The main idea of Golden Grid System… fluid columns, elastic gutters, and a zoomable baseline grid.</p>
 				</header>
-				<section>
-					<div class="wrapper">				
-						<h3>Folding columns</h3>
-						
-						<figure>
-							<img src="#" alt=""/>
-						</figure>
-						
-						<p>Inspired by the DIN paper system. Splits the screen into 18 even columns. The leftmost and rightmost column as used as outer margins. The remaining 16 are perfect for creating layouts for large screens, and can be combined, or "folded", into 8 columns on medium-sized screens and 4 columns on small screens. Should cover anything from 240 to 2560 px. Allows easy use of the Golden Ratio at 8 columns (5/3 split) and 16 columns (10/6 split).</p>
-						
-						<p>Basically infinite.</p>
-					</div>
+				<section class="wrapper">		
+					<h3>Folding columns</h3>
+					
+					<figure>
+						<img src="#" alt=""/>
+					</figure>
+					
+					<p>Inspired by the DIN paper system. Splits the screen into 18 even columns. The leftmost and rightmost column as used as outer margins. The remaining 16 are perfect for creating layouts for large screens, and can be combined, or "folded", into 8 columns on medium-sized screens and 4 columns on small screens. Should cover anything from 240 to 2560 px. Allows easy use of the Golden Ratio at 8 columns (5/3 split) and 16 columns (10/6 split).</p>
+					
+					<p>Basically infinite.</p>
 				</section>
-				<section>
-					<div class="wrapper">
-						<h3>Elastic gutters</h3>
-						
-						<figure>
-							<img src="#" alt=""/>
-						</figure>
-						
-						<p>Elements in layouts that use fluid gutters often feel like they're stretching apart on large screens or being squeezed together on small screens. Using em-widths for the gutters gets you around this problem. They always stay in proportion to the content, as they should be. Accomplished by positioning elements in the middle of the gutter, and giving them a padding equal to half of the gutter's width.</p>
-					</div>
+				<section class="wrapper">
+					<h3>Elastic gutters</h3>
+					
+					<figure>
+						<img src="#" alt=""/>
+					</figure>
+					
+					<p>Elements in layouts that use fluid gutters often feel like they're stretching apart on large screens or being squeezed together on small screens. Using em-widths for the gutters gets you around this problem. They always stay in proportion to the content, as they should be. Accomplished by positioning elements in the middle of the gutter, and giving them a padding equal to half of the gutter's width.</p>
 				</section>
-				<section>
-					<div class="wrapper">	
-						<h3>Zoomable baseline grid</h3>
-		
-						<figure>
-							<img src="#" alt=""/>
-						</figure>
-						
-						<p>Type size presets based on the golden ratio. When font-size changes, all line-heights, margins, paddings, and borders scale in proportion, keeping the baseline grid intact. Meaning you can  adjust the base font-size of your layout using media queries to, for example, make the text larger on huge monitors or tablets — both devices that tend to be further away from the eyes than usual — while keeping the baseline grid in harmony.</p>
-					</div>
+				<section class="wrapper">
+					<h3>Zoomable baseline grid</h3>
+	
+					<figure>
+						<img src="#" alt=""/>
+					</figure>
+					
+					<p>Type size presets based on the golden ratio. When font-size changes, all line-heights, margins, paddings, and borders scale in proportion, keeping the baseline grid intact. Meaning you can  adjust the base font-size of your layout using media queries to, for example, make the text larger on huge monitors or tablets — both devices that tend to be further away from the eyes than usual — while keeping the baseline grid in harmony.</p>
 				</section>
-				<section>
-					<div class="wrapper">	
-						<h3>Delightful grid overlay script</h3>
-		
-						<figure>
-							<img src="#" alt=""/>
-						</figure>
-						
-						<p>A visual aid for both design and development. Works across pretty much all devices. Helps to make sure everything aligns up nicely with the grid. Appears with a pleasing animation on modern browsers. Give it a try by clicking or tapping the icon in the upper right corner of this page. It's fun.</p>
-					</div>
+				<section class="wrapper">
+					<h3>Delightful grid overlay script</h3>
+	
+					<figure>
+						<img src="#" alt=""/>
+					</figure>
+					
+					<p>A visual aid for both design and development. Works across pretty much all devices. Helps to make sure everything aligns up nicely with the grid. Appears with a pleasing animation on modern browsers. Give it a try by clicking or tapping the icon in the upper right corner of this page. It's fun.</p>
 				</section>
 			</section>
+			
 			<section id="code">
 				<header class="wrapper">
 					<h2>Get the grid system</h2>
 					
-					<p>Golden Grid System is hosted on <a href="https://github.com/jonikorpi/Golden-Grid-System">Github</a>, and consists of three files.</p>
+					<p>Golden Grid System is <a href="https://github.com/jonikorpi/Golden-Grid-System">hosted on Github</a>.</p>
 				</header>
-				<section class="wrapper">
+				<div class="wrapper">
 					<p><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/ggs.html">ggs.html</a> contains the required HTML, as well as a simple demonstration of the grid in use.</p>
 					
-					<p>[ggs.css)(https://github.com/jonikorpi/Golden-Grid-System/blob/master/ggs.css) contains the CSS. Details of its contents are included in CSS comments throughout the file.</p>
+					<p><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/ggs.css">ggs.css</a> contains the CSS. Details of its contents are included in CSS comments throughout the file.</p>
 					
 					<p><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/ggs.less">ggs.less</a> contains the source of the CSS, written using the <a href="http://lesscss.org/">LESS CSS</a> language. It allows you to change the base line-height (1.5) and works as a nice starting point for LESS users.</p>
-				</section>
+				</div>
 			</section>
+			
 			<section id="gridlet">
 				<header class="wrapper">
 					<h2>Get the Gridlet</h2>
 					
-					<p>A snippet for Javascript for overlaying the GGS grid on the page. </p>
+					<p>For overlaying the GGS grid on the page.</p>
 				</header>
-				<section class="wrapper">
+				<div class="wrapper">
 					<p><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/gridlet/gridlet.js">gridlet.js</a>, when included in a page, adds an icon in the upper right corner that toggles the overlay. The overlay colours can be customized at the top of the file.</p>
 					
 					<p>You can see a simple demonstration of the Gridlet in action in <a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/ggs.html">ggs.html</a>.</p>
 					
 					<p>Note that the Gridlet might not work as expected if the <code>body</code> element of your page has a set width and <code>position: relative;</code>, since the guides are appended inside <code>body</code>, but positioned in relation to the <code>html</code> element.</p>
-				</section>
+				</div>
 			</section>
+			
+			<section id="tips">
+				<header class="wrapper">
+					<h2>Good to know</h2>
+					<p>Useful tips, and answers to FAQs.</p>
+				</header>
+				<div class="wrapper">
+					<p><strong>Fluid design</strong> is <em>hard</em>. Don't give up. We'll all have to learn it eventually. Read <a href="http://www.alistapart.com/articles/fluidgrids/">Fluid Grids</a> and <a href="http://www.abookapart.com/products/responsive-web-design">Responsive Web Design</a> by <a href="http://ethanmarcotte.com/">Ethan Marcotte</a>. They help a lot.</p>
+					
+					<p><strong>Don't set a max-width</strong>, or at least don't set one below 2560px. When your content starts getting too wide, add some empty columns on the sides, or use the zoomable baseline grid to make it fit a little better. The whole point of a fluid grid is to use the screen's proportions to align elements, so stick to it. Also, making your site feel perfect on a 27" monitor is <em>fun</em>.</p>
+					
+					<p><strong>Serve IE6–8 just the narrow layout</strong> and enhance it a little with <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/">IE-specific classes</a>. It makes coding the wider layouts so much easier. More about this in my blog post: <a href="http://jonikorpi.com/leaving-old-IE-behind/">Leaving Old Internet Explorer Behind</a>.</p>
+					
+					<p><strong>Use box-sizing: border-box;</strong> in the wider layouts. It lets you give the same element both a width in percentages as well as the padding in ems, which is required for the elastic gutters to work. If you followed my advice about IE6–8 above, you can use it without worrying about browser support.</p>
+					
+					<p><strong>If your site zooms in too much</strong> when you change orientations on an iOS device, it's because of <a href="http://filamentgroup.com/examples/iosScaleBug/">this Mobile Safari bug</a>.</p>
+				</div>
+			</section>
+			
 		</article>
 		
 		<footer id="colophon">
 			<div class="inner">
 			
-				<section id="author">
-					<div class="wrapper">
-						<h3>Developed by</h3>
-						<a href="http://jonikorpi.com/">
-							<img src="" alt="Avatar"/>
-							<p>
-								<strong>Joni Korpi</strong> &mdash; a web designer from Espoo, Finland. Looking for a job soon. 
-							</p>
-						</a>
-					</div>
+				<section id="author" class="wrapper">
+					<h3>Developed by</h3>
+					<a href="http://jonikorpi.com/">
+						<img src="" alt="Avatar"/>
+						<p>
+							<strong>Joni Korpi</strong> &mdash; a web designer from Espoo, Finland. Looking for a job soon. 
+						</p>
+					</a>
 				</section>
 			
-				<section id="promo">
-					<div class="wrapper">
-						<h3>Also check out</h3>
-						<a href="http://lessframework.com/">
-							<img src="" alt="Icon"/>					
-							<p>
-								<strong>Less Framework</strong> &mdash; an adaptive CSS grid system for static-width layouts.
-							</p>
-						</a>
-					</div>
-				</section>
-				
-				<section id="follow">
-					<div class="wrapper">
+				<section id="promo" class="wrapper">
+					<h3>Also check out</h3>
+					<a href="http://lessframework.com/">
+						<img src="" alt="Icon"/>					
 						<p>
-							<a href="http://twitter.com/jonikorpi/">Follow @jonikorpi</a> on Twitter to stay up to date with Golden Grid System.
+							<strong>Less Framework</strong> &mdash; an adaptive CSS grid system for static-width layouts.
 						</p>
-					</div>
+					</a>
 				</section>
 				
-				<section id="copyright">
-					<div class="wrapper">
-						<p>Golden Grid System is licensed under MIT. This site and its design copyright Joni Korpi. All rights reserved.</p>
-					</div>
+				<section id="follow" class="wrapper">
+					<p>
+					<a href="http://twitter.com/jonikorpi/">Follow @jonikorpi</a> on Twitter to stay up to date with Golden Grid System.
+					</p>
+				</section>
+				
+				<section id="copyright" class="wrapper">
+					<p>Golden Grid System is licensed under MIT. This site and its design copyright Joni Korpi. All rights reserved. max-width: 5120px;</p>
 				</section>
 			
 			</div>

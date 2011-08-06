@@ -242,6 +242,9 @@ pre, code {
 #content p, #content figure {
   margin-top: 0.75em;
 }
+#content header p {
+  font-style: italic;
+}
 h2 {
   margin-top: 0.9230769230769231em;
 }
@@ -255,13 +258,15 @@ h3 {
 */
 a {
   text-decoration: none;
+  background: rgba(255, 195, 0, 0.15000000000000002);
+  color: #000000;
 }
 /*
 *
-*	Narrow Layout
-*	---------------------
-*	cols  1   2   3   4
-*	%     25  50  75  100
+*  Narrow Layout
+*  ----------------------------------------
+*  Margin   | #  1   2   3   4   |   Margin
+*  5.55555% | %  25  50  75  100 | 5.55555%
 *
 */
 body {
@@ -332,6 +337,11 @@ figure img {
     height: 7.5em;
   }
 }
+/*
+*
+*  Zoom baseline grid to 17/16 = 1.0625
+*
+*/
 @media screen and (min-width: 640px) {
   body {
     font-size: 1.0625em;
@@ -339,7 +349,17 @@ figure img {
   #guides {
     height: 12em;
   }
-  #colophon section {
+  .wrapper {
+    box-sizing: border-box;
+  }
+  #colophon:after {
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+  }
+  #colophon .wrapper {
     width: 50%;
     float: left;
   }
@@ -347,16 +367,20 @@ figure img {
     font-size: 1em;
     line-height: 1.5em;
   }
-  #follow {
-    padding-bottom: 3em;
+  #copyright {
+    padding-bottom: 0;
+  }
+  #colophon #follow, #colophon #copyright {
+    margin-bottom: 3em;
   }
 }
 /*
 *
-*	Portrait Layout
-*	---------------------------------------------
-*	cols  1     2   3     4   5     6   7     8
-*	%     12.5  25  37.5  50  62.5  75  87.5  100
+*  Portrait Layout
+*  ----------------------------------------------------------------------
+*  Margin   | #  1     2     3     4     5     6     7     8   |   Margin
+*  5.55555% | %  12.5  25.0  37.5  50.0  62.5  75.0  87.5  100 | 5.55555%
+*	
 *
 */
 @media screen and (min-width: 720px) {
@@ -369,7 +393,7 @@ figure img {
   #masthead {
     padding: 3em 0 1.5em;
   }
-  #content .wrapper {
+  #masthead .wrapper, #content .wrapper {
     margin: 0 12.5%;
   }
   h1 {
@@ -381,11 +405,21 @@ figure img {
     line-height: 1.3846153846153846em;
   }
 }
+/*
+*
+*  Zoom baseline grid to 17/16 = 1.0625
+*
+*/
 @media screen and (min-width: 888px) {
   body {
     font-size: 1.0625em;
   }
 }
+/*
+*
+*  Reset baseline grid to 16/16 = 1.0
+*
+*/
 @media screen and (min-width: 960px) {
   body {
     font-size: 1em;
@@ -393,17 +427,17 @@ figure img {
   #content {
     float: left;
   }
-  #content .wrapper {
+  #masthead .wrapper, #content .wrapper {
     margin: 0;
   }
-  #features section, #code, #gridlet {
+  #features section {
     width: 50%;
     float: left;
   }
   #features section:nth-of-type(2n+1), #code {
     clear: left;
   }
-  #features header {
+  #content header {
     width: 75%;
   }
   h2 {
@@ -411,22 +445,37 @@ figure img {
     line-height: 1.1428571428571428em;
     margin-top: 0.8571428571428571em;
   }
-  #content header p, h3 {
+  #content header p, #content h3 {
     font-size: 1.625em;
     line-height: 1.3846153846153846em;
   }
   #content header p {
-    margin-top: 0.46153846153846156em;
+    margin-top: 0.23076923076923078em;
+    margin-bottom: 0.6923076923076923em;
+    font-style: normal;
   }
-  #colophon h3 {
-    margin-bottom: 0.46153846153846156em;
+  #features header p {
+    margin-bottom: 0;
+  }
+  #content h3 {
+    margin-top: 0.9230769230769231em;
   }
 }
+/*
+*
+*  Zoom baseline grid to 17/16 = 1.0625
+*
+*/
 @media screen and (min-width: 1200px) {
   body {
     font-size: 1.0625em;
   }
 }
+/*
+*
+*  Reset baseline grid to 16/16 = 1.0
+*
+*/
 @media screen and (min-width: 1392px) {
   body {
     font-size: 1em;
@@ -436,14 +485,32 @@ figure img {
     margin-right: 16.666666666666664%;
   }
 }
+/*
+*
+*  Zoom baseline grid to 17/16 = 1.0625
+*
+*/
 @media screen and (min-width: 1680px) {
   body {
     font-size: 1.0625em;
   }
 }
+/*
+*
+*  Landscape layout
+*  ----------------------------------------------------------------------------------------------------------------------
+*  Margin   | #  1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16  |   Margin
+*  5.55555% | %  6.25  12.5  18.75 25.0  31.25 37.5  43.75 50.0  56.25 62.5  68.75 75.0  81.25 87.5  93.75 100 | 5.55555%
+*	
+*
+*/
 @media screen and (min-width: 1872px) {
   #masthead {
     padding: 4.5em 0 3em;
+  }
+  #masthead, #content, #colophon .inner {
+    margin-left: 5.555555555555555%;
+    margin-right: 5.555555555555555%;
   }
   h1 {
     font-size: 4.25em;
@@ -456,9 +523,42 @@ figure img {
   #guides {
     height: 24em;
   }
+  #features section, #features section:nth-of-type(2n+1) {
+    width: 25%;
+    clear: none;
+  }
+  #content header {
+    width: 50%;
+  }
 }
+@media screen and (min-width: 2080px) {
+  #content header {
+    width: 37.5%;
+  }
+}
+/*
+*
+*  Zoom baseline grid to 18/16 = 1.125
+*
+*/
 @media screen and (min-width: 2496px) {
   body {
     font-size: 1.125em;
+  }
+}
+@media screen and (min-width: 3216px) {
+  #masthead, #content, #colophon .inner {
+    margin-left: 16.666666666666664%;
+    margin-right: 16.666666666666664%;
+  }
+}
+@media screen and (min-width: 4440px) {
+  body {
+    position: relative;
+    max-width: 5120px;
+  }
+  #masthead, #content, #colophon .inner {
+    margin-left: 27.77777777777778%;
+    margin-right: 27.77777777777778%;
   }
 }
