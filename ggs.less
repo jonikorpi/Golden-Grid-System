@@ -88,7 +88,10 @@ input[type="submit"] {
 }
 input[type="checkbox"],
 input[type="radio"] {
-    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+			box-sizing: border-box;
 }
 textarea {
 	overflow: auto;
@@ -209,7 +212,7 @@ a {
 
 /*
 *
-*  Narrow Layout
+*  Four-column layout
 *  ----------------------------------------
 *  Margin   | #  1   2   3   4   |   Margin
 *  5.55555% | %  25  50  75  100 | 5.55555%
@@ -259,12 +262,16 @@ body {
 	border-top: 1/@em solid @body;
 }
 
-	#colophon section {
-		margin-bottom: 24/@em;
+	#author, #promo, #follow {
+		padding-bottom: 24/@em;
+	}
+	
+	#copyright {
+		padding-bottom: 48/@em;
 	}
 
 	#colophon h3 {
-		margin: 0 0 12/@em;
+		margin: 0;
 	}
 	
 	#author a, #promo a {
@@ -284,15 +291,6 @@ body {
 			width: 72/@em;
 			height: 72/@em;
 		}
-	
-	#follow {
-		clear: both;
-	}
-	
-	#copyright {
-		margin: 0;
-		padding-bottom: 48/@em;
-	}
 
 @media screen and (min-width: 480px) {
 
@@ -319,8 +317,11 @@ body {
 		height: 192/@em;
 	}
 	
-	.wrapper {
-		box-sizing: border-box;
+	.wrapper, #promoGroup {
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+			 -o-box-sizing: border-box;
+				box-sizing: border-box;
 	}
 	
 	#colophon:after {
@@ -331,28 +332,28 @@ body {
 		clear: both;
 	}
 	
-		#colophon .wrapper {
+		#promoGroup, #follow, #copyright {
 			width: 50%;
 			float: left;
 		}
+		
+			#promoGroup {
+				float: right;
+			}
 		
 		#copyright p {
 			.normal();
 		}
 		
-		#copyright {
-			padding-bottom: 0;
-		}
-		
-		#colophon #follow, #colophon #copyright {
-			margin-bottom: 48/@em;
+		#promo, #copyright {
+			padding-bottom: 48/@em;
 		}
 	
 }
 
 /*
 *
-*  Portrait Layout
+*  Eight-column layout
 *  ----------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8   |   Margin
 *  5.55555% | %  12.5  25.0  37.5  50.0  62.5  75.0  87.5  100 | 5.55555%
@@ -382,7 +383,7 @@ body {
 		.huge();
 	}
 	
-	#masthead p {
+	#masthead p, #follow p {
 		.large();
 	}
 	
@@ -408,7 +409,7 @@ body {
 *
 */
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 984px) {
 	
 	body {
 		font-size: (@font-size) / @em;
@@ -422,7 +423,7 @@ body {
 		margin: 0;
 	}
 	
-	#features section {
+	#code, #gridlet, #features section {
 		width: 50%;
 		float: left;
 	}
@@ -431,8 +432,21 @@ body {
 			clear: left;
 		}
 	
-		#content header {
+		#features header {
 			width: 75%;
+		}
+		
+	#tips {
+		clear: both;
+	}
+	
+		#tips div.wrapper {
+			-webkit-column-count: 2;
+			-webkit-column-gap: 24/@em;
+			-moz-column-count: 2;
+			-moz-column-gap: 24/@em;
+			column-count: 2;
+			column-gap: 24/@em;
 		}
 		
 	h2 {
@@ -457,7 +471,7 @@ body {
 		#content h3 {
 			margin-top: 24 / 26*1em;
 		}
-	
+
 }
 
 
@@ -471,6 +485,11 @@ body {
 	
 	body {
 		font-size: (@font-size + 1) / @em;
+	}
+	
+	#promoGroup .wrapper {
+		width: 50%;
+		float: left;
 	}
 }
 
@@ -487,9 +506,21 @@ body {
 		font-size: (@font-size) / @em;
 	}
 	
-	#masthead, #content, #colophon .inner {
+	#masthead, #content {
 		margin-left: @column*3;
 		margin-right: @column*3;
+	}
+	
+	#follow, #copyright {
+		width: 25%;
+	}
+	
+	#promoGroup {
+		float: left;
+	}
+	
+	#follow, #author {
+		padding-bottom: 60/@em;
 	}
 }
 
@@ -509,7 +540,7 @@ body {
 
 /*
 *
-*  Landscape layout
+*  Sixteen-column layout
 *  ----------------------------------------------------------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16  |   Margin
 *  5.55555% | %  6.25  12.5  18.75 25.0  31.25 37.5  43.75 50.0  56.25 62.5  68.75 75.0  81.25 87.5  93.75 100 | 5.55555%
@@ -540,20 +571,52 @@ body {
 		height: 384/@em;
 	}
 	
-	#features section, #features section:nth-of-type(2n+1) {
+	#features section, #features section:nth-of-type(2n+1), #code, #gridlet {
 		width: 25%;
 		clear: none;
 	}
 	
-	#content header {
-		width: 50%;
+		#features header {
+			width: 50%;
+		}
+		
+		#code {
+			clear: left;
+		}
+		
+		#tips {
+			width: 50%;
+			float: left;
+			clear: none;
+		}
+	
+	#promoGroup {
+		width: 37.5%;
 	}
+	
+	#follow, #copyright {
+		width: 31.25%;
+	}
+	
 }
 
 @media screen and (min-width: 2080px) {
 	
-	#content header {
+	#features header {
 		width: 37.5%;
+	}
+	
+	#follow, #copyright {
+		width: 25%;
+	}
+	
+	#copyright {
+		float: right;
+	}
+	
+	#promoGroup {
+		width: 50%;
+		padding: 0 6.25%;
 	}
 	
 }
@@ -564,7 +627,6 @@ body {
 *  Zoom baseline grid to 18/16 = 1.125
 *
 */
-
 @media screen and (min-width: 2496px) {
 	
 	body {
@@ -578,6 +640,20 @@ body {
 	#masthead, #content, #colophon .inner {
 		margin-left: @column*3;
 		margin-right: @column*3;
+	}
+	
+}
+
+/*
+*
+*  Zoom baseline grid to 19/16 = 1.1875
+*
+*/
+
+@media screen and (min-width: 4104px) {
+	
+	body {
+		font-size: (@font-size + 3) / @em;
 	}
 	
 }
