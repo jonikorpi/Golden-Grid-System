@@ -14,8 +14,8 @@ var switchColor = 'black';
 var switchOpacity = '1';
 var switchCharacter = '&#9776;';
 
-var eightColBreakpoint = '719px';
-var sixteenColBreakpoint = '1871px';
+var eightColBreakpoint = '720';
+var sixteenColBreakpoint = '1872';
 
 
 /*!
@@ -74,8 +74,8 @@ $.domReady(function () {
 		.ggs-guide div{background:'+guideInnerColor+';width:2px;height:100%;position:absolute;left:-1px;top:0;}\
 		.ggs-0 div{left:auto;right:0.75em;}\
 		.ggs-16 div{left:0.75em;}\
-		@media screen and (max-width: '+eightColBreakpoint+'){.ggs-2,.ggs-6,.ggs-10,.ggs-14{display:none;}}\
-		@media screen and (max-width: '+sixteenColBreakpoint+'){.ggs-1,.ggs-3,.ggs-5,.ggs-7,.ggs-9,.ggs-11,.ggs-13,.ggs-15{display:none;}}\
+		@media screen and (max-width: '+(eightColBreakpoint - 1)+'px){.ggs-2,.ggs-6,.ggs-10,.ggs-14{display:none;}}\
+		@media screen and (max-width: '+(sixteenColBreakpoint - 1)+'px){.ggs-1,.ggs-3,.ggs-5,.ggs-7,.ggs-9,.ggs-11,.ggs-13,.ggs-15{display:none;}}\
 	';
 	
 /* 	Create guides */

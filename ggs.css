@@ -248,9 +248,6 @@ pre, code {
 #content header p {
   font-style: italic;
 }
-h2 {
-  margin-top: 0.9230769230769231em;
-}
 h3 {
   margin-top: 1.5em;
 }
@@ -278,6 +275,9 @@ body {
 }
 .ie body {
   width: 640px;
+  margin: 0 auto;
+  border: solid #000000;
+  border-width: 0 0.0625em;
   font-size: 1.0625em;
 }
 #masthead, #content, #colophon .inner {
@@ -291,15 +291,143 @@ body {
   padding: 2.25em 0 1.5em;
 }
 #guides {
-  height: 9em;
+  height: 8.25em;
+  position: relative;
+  border: solid #ffc300;
+  border-width: 0.375em 0;
+}
+.ggs-site-guide {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 9000;
+  margin-left: -0.75em;
+  border: solid #ffc300;
   background: #ffc300;
+  border-width: 0 0.75em;
+  -webkit-transition: all 0.91s ease-out;
+  -moz-transition: all 0.91s ease-out;
+  -ms-transition: all 0.91s ease-out;
+  transition: all 0.91s ease-out;
+}
+.ggs-site-guide div {
+  background: #ffffff;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  left: -1px;
+  top: 0;
+}
+.ggs-site-0 {
+  left: 0;
+}
+.ggs-site-1 {
+  left: 11.11111111111111%;
+}
+.ggs-site-2 {
+  left: 16.666666666666664%;
+}
+.ggs-site-3 {
+  left: 22.22222222222222%;
+}
+.ggs-site-4 {
+  left: 27.77777777777778%;
+}
+.ggs-site-5 {
+  left: 33.33333333333333%;
+}
+.ggs-site-6 {
+  left: 38.888888888888886%;
+}
+.ggs-site-7 {
+  left: 44.44444444444444%;
+}
+.ggs-site-8 {
+  left: 50%;
+}
+.ggs-site-9 {
+  left: 55.55555555555556%;
+}
+.ggs-site-10 {
+  left: 61.11111111111111%;
+}
+.ggs-site-11 {
+  left: 66.66666666666666%;
+}
+.ggs-site-12 {
+  left: 72.22222222222221%;
+}
+.ggs-site-13 {
+  left: 77.77777777777777%;
+}
+.ggs-site-14 {
+  left: 83.33333333333333%;
+}
+.ggs-site-15 {
+  left: 88.88888888888889%;
+}
+.ggs-site-16 {
+  right: 0;
+}
+.ggs-site-0, .ggs-site-16 {
+  width: 5.555555555555555%;
+  padding-right: 0.75em;
+  border: 0;
+  margin: 0;
+}
+.ggs-site-0 div {
+  left: auto;
+  right: 0.75em;
+}
+.ggs-site-16 div {
+  left: 0.75em;
+}
+@media screen and (max-width: 719px) {
+  .ggs-site-2,
+  .ggs-site-6,
+  .ggs-site-10,
+  .ggs-site-14 {
+    -webkit-transform: scale(0, 1);
+    -moz-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+  }
+}
+@media screen and (max-width: 1871px) {
+  .ggs-site-1,
+  .ggs-site-3,
+  .ggs-site-5,
+  .ggs-site-7,
+  .ggs-site-9,
+  .ggs-site-11,
+  .ggs-site-13,
+  .ggs-site-15 {
+    -webkit-transform: scale(0, 1);
+    -moz-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+  }
 }
 #content {
   margin-bottom: 3em;
 }
+#content header {
+  padding-top: 1.5em;
+}
 figure img {
   width: 100%;
   height: 15em;
+}
+#features {
+  border-bottom: 0.0625em solid #000000;
+  padding-bottom: 2.9375em;
+}
+#gridlet {
+  padding-bottom: 2.9375em;
+}
+#tips {
+  clear: both;
+  border-top: 0.0625em solid #000000;
 }
 #colophon {
   clear: both;
@@ -333,7 +461,7 @@ figure img {
 }
 @media screen and (min-width: 480px) {
   #guides {
-    height: 7.5em;
+    height: 6.75em;
   }
 }
 /*
@@ -346,7 +474,7 @@ figure img {
     font-size: 1.0625em;
   }
   #guides {
-    height: 12em;
+    height: 11.25em;
   }
   .wrapper, #promoGroup {
     -webkit-box-sizing: border-box;
@@ -390,7 +518,7 @@ figure img {
     font-size: 1em;
   }
   #guides {
-    height: 15.75em;
+    height: 24.75em;
   }
   #masthead {
     padding: 3em 0 1.5em;
@@ -428,9 +556,13 @@ figure img {
   }
   #content {
     float: left;
+    margin-bottom: 3.75em;
   }
   #masthead .wrapper, #content .wrapper {
     margin: 0;
+  }
+  #features {
+    float: left;
   }
   #code, #gridlet, #features section {
     width: 50%;
@@ -442,9 +574,6 @@ figure img {
   #features header {
     width: 75%;
   }
-  #tips {
-    clear: both;
-  }
   #tips div.wrapper {
     -webkit-column-count: 2;
     -webkit-column-gap: 1.5em;
@@ -453,10 +582,15 @@ figure img {
     column-count: 2;
     column-gap: 1.5em;
   }
+  #features, #gridlet, #code {
+    padding-bottom: 3.6875em;
+  }
   h2 {
     font-size: 2.625em;
     line-height: 1.1428571428571428em;
-    margin-top: 0.8571428571428571em;
+  }
+  #content header {
+    padding-top: 2.25em;
   }
   #content header p, #content h3 {
     font-size: 1.625em;
@@ -547,7 +681,7 @@ figure img {
     line-height: 1.1428571428571428em;
   }
   #guides {
-    height: 24em;
+    height: 38.25em;
   }
   #features section,
   #features section:nth-of-type(2n+1),
@@ -561,11 +695,10 @@ figure img {
   }
   #code {
     clear: left;
+    margin-left: 25%;
   }
   #tips {
-    width: 50%;
-    float: left;
-    clear: none;
+    padding: 0 25%;
   }
   #promoGroup {
     width: 37.5%;
