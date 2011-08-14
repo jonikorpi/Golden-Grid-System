@@ -1,8 +1,8 @@
 /*
 *
-*	Golden Grid System (1.0a)	<http://???.com/>
-*	by Joni Korpi 				<http://jonikorpi.com/>
-*	licensed under MIT			<http://opensource.org/licenses/mit-license.php>
+*  Golden Grid System (1.0a)	<http://???.com/>
+*  by Joni Korpi 				<http://jonikorpi.com/>
+*  licensed under MIT			<http://opensource.org/licenses/mit-license.php>
 *	
 */
 /*
@@ -14,8 +14,8 @@
 */
 /*
 *
-*	Margin, padding, and border resets
-*	except for form elements
+*  Margin, padding, and border resets
+*  except for form elements
 *
 */
 html,
@@ -92,8 +92,8 @@ canvas {
 }
 /*
 *
-*	Consistency fixes
-*	adopted from http://necolas.github.com/normalize.css/
+*  Consistency fixes
+*  adopted from http://necolas.github.com/normalize.css/
 *
 */
 html {
@@ -174,7 +174,7 @@ table {
 }
 /*
 *
-*	Simple fluid media
+*  Simple fluid media
 *
 */
 figure {
@@ -193,14 +193,31 @@ img {
 }
 /*
 *
-*	Type size presets
+*  Simple elastic gutters
+*  Note: box-sizing will not work in IE6-8
+*
+*/
+.wrapper {
+  padding: 0 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*
+*
+*	Zoomable baseline grid
+*	type size presets
 *
 */
 body {
   font-size: 1em;
   line-height: 1.5em;
 }
-.small, small, #copyright p {
+.small,
+small,
+code,
+#copyright p {
   font-size: 0.8125em;
   line-height: 1.3846153846153846em;
 }
@@ -242,28 +259,66 @@ select {
 pre, code {
   font-family: Menlo, Monaco, monospace;
 }
-#content p, #content figure {
-  margin-top: 0.75em;
+article p, #content figure, #content header p {
+  margin-bottom: 1.5em;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+article p:last-child {
+  margin-bottom: 0;
 }
 #content header p {
-  font-style: italic;
+  padding-bottom: 1.4375em;
+  border-bottom: 0.0625em dotted #252525;
+  margin: 0;
+}
+h2 {
+  margin-bottom: 0.46153846153846156em;
 }
 h3 {
-  margin-top: 1.5em;
+  margin: 3em 0 1.5em;
+}
+#download h3, #guide h3 {
+  margin: 1.5em 0 0;
 }
 /*
 *
 *	Colours
 *
 */
+h1,
+h2,
+h3,
+strong,
+#follow p {
+  color: #090909;
+}
 a {
   text-decoration: none;
-  background: rgba(255, 195, 0, 0.15000000000000002);
-  color: #000000;
+  color: #090909;
+  border-bottom: 0.0625em solid #090909;
+}
+a:hover {
+  background: #ffc300;
+}
+::selection {
+  background: #ffc300;
+}
+::-moz-selection {
+  background: #ffc300;
+}
+img::selection {
+  background: transparent;
+}
+img::-moz-selection {
+  background: transparent;
+}
+body {
+  -webkit-tap-highlight-color: #ffc300;
 }
 /*
 *
-*  Four-column layout
+*  Four-column grid active
 *  ----------------------------------------
 *  Margin   | #  1   2   3   4   |   Margin
 *  5.55555% | %  25  50  75  100 | 5.55555%
@@ -271,30 +326,33 @@ a {
 */
 body {
   background: #ffffff;
-  color: #000000;
+  color: #252525;
 }
-.ie body {
-  width: 640px;
-  margin: 0 auto;
-  border: solid #000000;
-  border-width: 0 0.0625em;
-  font-size: 1.0625em;
-}
-#masthead, #content, #colophon .inner {
+#masthead, #content, .inner {
   margin: 0 5.555555555555555%;
 }
 .wrapper {
-  padding: 0 0.75em;
   position: relative;
 }
+#navigation {
+  padding: 0.9375em 0 0.5625em;
+  float: left;
+  width: 100%;
+  background: #e8e8e8;
+}
+#navigation li {
+  float: left;
+  list-style: none;
+  margin-right: 1.125em;
+}
 #masthead {
+  clear: both;
   padding: 2.25em 0 1.5em;
 }
 #guides {
-  height: 8.25em;
+  height: 7.5em;
   position: relative;
-  border: solid #ffc300;
-  border-width: 0.375em 0;
+  background: #090909;
 }
 .ggs-site-guide {
   height: 100%;
@@ -305,13 +363,13 @@ body {
   border: solid #ffc300;
   background: #ffc300;
   border-width: 0 0.75em;
-  -webkit-transition: all 0.91s ease-out;
-  -moz-transition: all 0.91s ease-out;
-  -ms-transition: all 0.91s ease-out;
-  transition: all 0.91s ease-out;
+  -webkit-transition: all 0.618s ease-out;
+  -moz-transition: all 0.618s ease-out;
+  -ms-transition: all 0.618s ease-out;
+  transition: all 0.618s ease-out;
 }
 .ggs-site-guide div {
-  background: #ffffff;
+  background: #090909;
   width: 2px;
   height: 100%;
   position: absolute;
@@ -412,27 +470,119 @@ body {
   margin-bottom: 3em;
 }
 #content header {
-  padding-top: 1.5em;
+  padding-top: 3em;
 }
-figure img {
+#features figure {
   width: 100%;
-  height: 15em;
+  height: 12em;
 }
-#features {
-  border-bottom: 0.0625em solid #000000;
-  padding-bottom: 2.9375em;
+.canvas {
+  background: #090909;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
 }
-#gridlet {
-  padding-bottom: 2.9375em;
+.gutter, .margin {
+  height: 100%;
+  width: 1.5em;
+  background: #ffc300;
+  position: absolute;
+  left: 25%;
+  top: 0;
+  margin-left: -0.75em;
 }
-#tips {
+.gutter2 {
+  left: 50%;
+}
+.gutter3 {
+  left: 75%;
+}
+.gutter div {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -0.0625em;
+  width: 0.125em;
+  background: #090909;
+}
+.margin {
+  left: 0;
+  margin: 0;
+  width: 0.75em;
+}
+.right {
+  left: auto;
+  right: 0;
+}
+.line {
+  height: 1.4375em;
+  border-bottom: 0.0625em dotted #ffc300;
+}
+.text {
+  position: absolute;
+  left: 0.75em;
+  top: 1.5em;
+  color: #ffc300;
+  white-space: pre;
+}
+.twoLines {
+  font-size: 2.625em;
+  line-height: 1.1428571428571428em;
+  left: 0.2857142857142857em;
+  top: 1.1428571428571428em;
+}
+.threeLines {
+  font-size: 4.25em;
+  line-height: 1.0588235294117647em;
+  left: 0.17647058823529413em;
+  top: 1.411764705882353em;
+}
+.fourLines {
+  font-size: 6.875em;
+  line-height: 1.0909090909090908em;
+  left: 0.10909090909090909em;
+  top: 1.5272727272727273em;
+}
+.fiveLines {
+  font-size: 11.125em;
+  line-height: 0.9438202247191011em;
+  left: 0.06741573033707865em;
+  top: 1.6179775280898876em;
+}
+.switch {
+  position: absolute;
+  right: 1.5em;
+  top: 1.5em;
+  width: 1.5em;
+}
+.switchBar {
+  height: 0.25em;
+  margin-bottom: 0.25em;
+  background: #ffc300;
+}
+#folding .gutter1, #folding .gutter3 {
+  background: none;
+  border: dashed #ffc300;
+  border-width: 0 0.0625em;
+  width: 1.375em;
+}
+#gutters .canvas {
+  background: #090909;
+}
+#gutters .gutter, #gutters .margin {
+  background: #ffc300;
+}
+#baseline .canvas {
+  background: #090909;
+}
+#guide {
   clear: both;
-  border-top: 0.0625em solid #000000;
 }
 #colophon {
   clear: both;
-  padding: 2.1875em 0 0;
-  border-top: 0.0625em solid #000000;
+  padding: 1.5em 0 0;
+  background: #e8e8e8;
 }
 #author, #promo, #follow {
   padding-bottom: 1.5em;
@@ -440,29 +590,37 @@ figure img {
 #copyright {
   padding-bottom: 3em;
 }
+#promoGroup .wrapper {
+  padding-left: 6em;
+  min-height: 6em;
+}
+.ie #promoGroup .wrapper {
+  height: 6em;
+}
 #colophon h3 {
   margin: 0;
-}
-#author a, #promo a {
-  padding-left: 5.25em;
-  min-height: 4.5em;
-  display: block;
   position: relative;
-}
-.ie #author a, .ie #promo a {
-  height: 4.5em;
+  left: -5.25em;
 }
 #colophon img {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 0.75em;
+  top: 1.5em;
   width: 4.5em;
   height: 4.5em;
 }
-@media screen and (min-width: 480px) {
-  #guides {
-    height: 6.75em;
-  }
+/*
+*
+*  Fixes for IE6-8
+*  http://jonikorpi.com/leaving-old-IE-behind/
+*
+*/
+.ie body {
+  width: 640px;
+  margin: 0 auto;
+  border: solid #252525;
+  border-width: 0 0.0625em;
+  font-size: 1.0625em;
 }
 /*
 *
@@ -474,9 +632,9 @@ figure img {
     font-size: 1.0625em;
   }
   #guides {
-    height: 11.25em;
+    height: 12em;
   }
-  .wrapper, #promoGroup {
+  #promoGroup {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -o-box-sizing: border-box;
@@ -506,25 +664,25 @@ figure img {
 }
 /*
 *
-*  Eight-column layout
+*  Eight-column grid active
 *  ----------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8   |   Margin
 *  5.55555% | %  12.5  25.0  37.5  50.0  62.5  75.0  87.5  100 | 5.55555%
 *	
 *
 */
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 744px) {
   body {
     font-size: 1em;
   }
+  #masthead .wrapper, #content .wrapper, #navigation ul {
+    margin: 0 12.5%;
+  }
   #guides {
-    height: 24.75em;
+    height: 27em;
   }
   #masthead {
-    padding: 3em 0 1.5em;
-  }
-  #masthead .wrapper, #content .wrapper {
-    margin: 0 12.5%;
+    padding: 3em 0 2.25em;
   }
   h1 {
     font-size: 2.625em;
@@ -533,6 +691,16 @@ figure img {
   #masthead p, #follow p {
     font-size: 1.625em;
     line-height: 1.3846153846153846em;
+  }
+  #download h3 {
+    float: left;
+    margin: 0;
+    clear: left;
+    width: 5.25em;
+  }
+  #download div p {
+    padding-left: 6em;
+    margin-top: 1.5em;
   }
 }
 /*
@@ -554,58 +722,83 @@ figure img {
   body {
     font-size: 1em;
   }
-  #content {
-    float: left;
-    margin-bottom: 3.75em;
-  }
-  #masthead .wrapper, #content .wrapper {
+  #masthead .wrapper, #content .wrapper, #navigation ul {
     margin: 0;
   }
-  #features {
+  #navigation {
+    padding: 0;
+    float: none;
+    background: none;
+  }
+  #navigation .inner {
+    position: relative;
+  }
+  #navigation ul {
+    position: absolute;
+    right: 0;
+    top: 3.75em;
+  }
+  #navigation li {
+    margin: 0 0 0 1.125em;
+    text-align: right;
+  }
+  #content {
     float: left;
+    margin-bottom: 4.5em;
   }
-  #code, #gridlet, #features section {
-    width: 50%;
-    float: left;
-  }
-  #features section:nth-of-type(2n+1), #code {
-    clear: left;
-  }
-  #features header {
-    width: 75%;
-  }
-  #tips div.wrapper {
-    -webkit-column-count: 2;
-    -webkit-column-gap: 1.5em;
-    -moz-column-count: 2;
-    -moz-column-gap: 1.5em;
-    column-count: 2;
-    column-gap: 1.5em;
-  }
-  #features, #gridlet, #code {
-    padding-bottom: 3.6875em;
+  #content header {
+    padding-top: 4.5em;
   }
   h2 {
     font-size: 2.625em;
     line-height: 1.1428571428571428em;
-  }
-  #content header {
-    padding-top: 2.25em;
-  }
-  #content header p, #content h3 {
-    font-size: 1.625em;
-    line-height: 1.3846153846153846em;
+    margin-bottom: 0.2857142857142857em;
   }
   #content header p {
-    margin-top: 0.23076923076923078em;
-    margin-bottom: 0.6923076923076923em;
-    font-style: normal;
+    font-size: 1.625em;
+    line-height: 1.3846153846153846em;
+    padding-bottom: 0.8846153846153846em;
+    border-bottom: 0.038461538461538464em dotted #252525;
   }
-  #features header p {
-    margin-bottom: 0;
+  #features section.wrapper {
+    width: 50%;
   }
-  #content h3 {
-    margin-top: 0.9230769230769231em;
+  #features section.wrapper:nth-of-type(2n) {
+    margin-left: 50%;
+  }
+  #features figure {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -100%;
+  }
+  #features section.wrapper:nth-of-type(2n) figure {
+    right: auto;
+    left: -100%;
+  }
+  .canvas {
+    margin: 0 0.75em;
+  }
+  #download div.wrapper {
+    float: left;
+    width: 25%;
+  }
+  #download h3 {
+    float: none;
+    clear: none;
+    width: auto;
+    margin: 1.5em 0 1.5em;
+  }
+  #download div p {
+    padding: 0;
+  }
+  #guide {
+    float: left;
+  }
+  #guide div.wrapper {
+    width: 50%;
+    float: left;
   }
 }
 /*
@@ -617,9 +810,9 @@ figure img {
   body {
     font-size: 1.0625em;
   }
-  #promoGroup .wrapper {
-    width: 50%;
-    float: left;
+  #promoGroup {
+    width: 37.5%;
+    margin-right: 12.5%;
   }
 }
 /*
@@ -631,18 +824,13 @@ figure img {
   body {
     font-size: 1em;
   }
-  #masthead, #content {
+  #masthead, #content, .inner {
     margin-left: 16.666666666666664%;
     margin-right: 16.666666666666664%;
   }
-  #follow, #copyright {
-    width: 25%;
-  }
   #promoGroup {
-    float: left;
-  }
-  #follow, #author {
-    padding-bottom: 3.75em;
+    width: 50%;
+    margin: 0;
   }
 }
 /*
@@ -654,10 +842,14 @@ figure img {
   body {
     font-size: 1.0625em;
   }
+  #promoGroup {
+    width: 33.333333333%;
+    margin-right: 16.666666667%;
+  }
 }
 /*
 *
-*  Sixteen-column layout
+*  Sixteen-column grid active
 *  ----------------------------------------------------------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16  |   Margin
 *  5.55555% | %  6.25  12.5  18.75 25.0  31.25 37.5  43.75 50.0  56.25 62.5  68.75 75.0  81.25 87.5  93.75 100 | 5.55555%
@@ -665,12 +857,15 @@ figure img {
 *
 */
 @media screen and (min-width: 1872px) {
+  #masthead,
+  #content,
+  #navigation .inner,
+  #colophon .inner {
+    margin-left: 22.22222222222222%;
+    margin-right: 22.22222222222222%;
+  }
   #masthead {
     padding: 4.5em 0 3em;
-  }
-  #masthead, #content, #colophon .inner {
-    margin-left: 5.555555555555555%;
-    margin-right: 5.555555555555555%;
   }
   h1 {
     font-size: 4.25em;
@@ -681,45 +876,26 @@ figure img {
     line-height: 1.1428571428571428em;
   }
   #guides {
-    height: 38.25em;
-  }
-  #features section,
-  #features section:nth-of-type(2n+1),
-  #code,
-  #gridlet {
-    width: 25%;
-    clear: none;
+    height: 24em;
   }
   #features header {
-    width: 50%;
-  }
-  #code {
-    clear: left;
-    margin-left: 25%;
-  }
-  #tips {
-    padding: 0 25%;
+    padding-top: 3em;
   }
   #promoGroup {
     width: 37.5%;
-  }
-  #follow, #copyright {
-    width: 31.25%;
+    margin: 0 12.5% 0 0;
   }
 }
 @media screen and (min-width: 2080px) {
-  #features header {
-    width: 37.5%;
+  #masthead,
+  #content,
+  #navigation .inner,
+  #colophon .inner {
+    margin-left: 27.77777777777778%;
+    margin-right: 27.77777777777778%;
   }
-  #follow, #copyright {
-    width: 25%;
-  }
-  #copyright {
-    float: right;
-  }
-  #promoGroup {
-    width: 50%;
-    padding: 0 6.25%;
+  #guides {
+    height: 39em;
   }
 }
 /*
@@ -733,9 +909,12 @@ figure img {
   }
 }
 @media screen and (min-width: 3216px) {
-  #masthead, #content, #colophon .inner {
-    margin-left: 16.666666666666664%;
-    margin-right: 16.666666666666664%;
+  #masthead,
+  #content,
+  #navigation .inner,
+  #colophon .inner {
+    margin-left: 33.33333333333333%;
+    margin-right: 33.33333333333333%;
   }
 }
 /*
@@ -753,8 +932,11 @@ figure img {
     position: relative;
     max-width: 5120px;
   }
-  #masthead, #content, #colophon .inner {
-    margin-left: 27.77777777777778%;
-    margin-right: 27.77777777777778%;
+  #masthead,
+  #content,
+  #navigation .inner,
+  #colophon .inner {
+    margin-left: 38.888888888888886%;
+    margin-right: 38.888888888888886%;
   }
 }

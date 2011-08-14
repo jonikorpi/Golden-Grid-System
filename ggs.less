@@ -1,8 +1,8 @@
 /*
 *
-*	Golden Grid System (1.0a)	<http://???.com/>
-*	by Joni Korpi 				<http://jonikorpi.com/>
-*	licensed under MIT			<http://opensource.org/licenses/mit-license.php>
+*  Golden Grid System (1.0a)	<http://???.com/>
+*  by Joni Korpi 				<http://jonikorpi.com/>
+*  licensed under MIT			<http://opensource.org/licenses/mit-license.php>
 *	
 */
 
@@ -18,8 +18,8 @@
 
 /*
 *
-*	Margin, padding, and border resets
-*	except for form elements
+*  Margin, padding, and border resets
+*  except for form elements
 *
 */
 
@@ -32,8 +32,8 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote,
 
 /*
 *
-*	Consistency fixes
-*	adopted from http://necolas.github.com/normalize.css/
+*  Consistency fixes
+*  adopted from http://necolas.github.com/normalize.css/
 *
 */
 
@@ -104,7 +104,7 @@ table {
 
 /*
 *
-*	Simple fluid media
+*  Simple fluid media
 *
 */
 
@@ -123,7 +123,24 @@ img {
 
 /*
 *
-*	Type size presets
+*  Simple elastic gutters
+*  Note: box-sizing will not work in IE6-8
+*
+*/
+
+.wrapper {
+	padding: 0 (@line/2)/@em;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+
+/*
+*
+*	Zoomable baseline grid
+*	type size presets
 *
 */
 
@@ -132,7 +149,7 @@ body {
 	line-height: @line / @em; // 24 px
 }
 
-.small, small, #copyright p {
+.small, small, code, #copyright p {
 	font-size: (@font-size*0.8125) / @em; // 13px
 	line-height: (@line*0.75) / (@font-size*0.8125) * 1em; // 18px
 }
@@ -176,17 +193,33 @@ pre, code {
 	font-family: Menlo, Monaco, monospace;
 }
 
-#content p, #content figure {
-	margin-top: 12/@em;
+article p, #content figure, #content header p {
+	margin-bottom: 24/@em;
+	hyphens: auto;
+	-webkit-hyphens: auto;
 }
 
-#content header p {
-	font-style: italic;
+	article p:last-child {
+		margin-bottom: 0;
+	}
+	
+	#content header p {
+		padding-bottom: 23/@em;
+		border-bottom: 1/@em dotted @body;
+		margin: 0;
+	}
+
+h2 {
+	margin-bottom: 12 / 26*1em;
 }
 
 h3 {
-	margin-top: 24/@em;
+	margin: 48/@em 0 24/@em;
 }
+
+	#download h3, #guide h3 {
+		margin: 24/@em 0 0;
+	}
 
 
 /*
@@ -196,19 +229,43 @@ h3 {
 */
 
 @background: 	rgb(255,255,255);
-@body: 			rgb(0,0,0);
+@highlight:		rgb(232,232,232);
+
+@body: 			rgb(37,37,37);
+@emphasis:		rgb(9,9,9);
+@aside:			rgb(97,97,97);
+
+@link:			rgb(255,195,0);
 @gold: 			rgb(255,195,0);
+
+h1, h2, h3, strong, #follow p {
+	color: @emphasis;
+}
 
 a {
 	text-decoration: none;
-	background: fadeout(@gold, 85%);
-	color: @body;
+	color: @emphasis;
+	border-bottom: 1/@em solid @emphasis;
 }
+
+a:hover {
+	background: @link;
+}
+
+a:active {
+	
+}
+
+::selection 	 	{background: @gold;}
+::-moz-selection 	{background: @gold;}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: @gold;}
 
 
 /*
 *
-*  Four-column layout
+*  Four-column grid active
 *  ----------------------------------------
 *  Margin   | #  1   2   3   4   |   Margin
 *  5.55555% | %  25  50  75  100 | 5.55555%
@@ -220,32 +277,36 @@ body {
 	color: @body;
 }
 
-	.ie body {
-		width: 640px;
-		margin: 0 auto;
-		border: solid @body;
-		border-width: 0 1/@em;
-		font-size: (@font-size + 1) / @em;
-	}
-
-#masthead, #content, #colophon .inner {
+#masthead, #content, .inner {
 	margin: 0 @column;
 }
 
 .wrapper {
-	padding: 0 12/@em;
 	position: relative;
 }
 
+#navigation {
+	padding: 15/@em 0 9/@em;
+	float: left;
+	width: 100%;
+	background: @highlight;
+}
+
+	#navigation li {
+		float: left;
+		list-style: none;
+		margin-right: 18/@em;
+	}
+
 #masthead {
+	clear: both;
 	padding: 36/@em 0 24/@em;
 }
 
 #guides {
-	height: 132/@em;
+	height: (120)/@em;
 	position: relative;
-	border: solid @gold;
-	border-width: 6/@em 0;
+	background: @emphasis;
 }
 
 	.ggs-site-guide {
@@ -257,14 +318,14 @@ body {
 		border:solid @gold;
 		background: @gold;
 		border-width:0 0.75em;
-		-webkit-transition: all 0.91s ease-out; 
-		-moz-transition: all 0.91s ease-out; 
-		-ms-transition: all 0.91s ease-out; 
-		transition: all 0.91s ease-out;
+		-webkit-transition: all 0.618s ease-out; 
+		-moz-transition: all 0.618s ease-out; 
+		-ms-transition: all 0.618s ease-out; 
+		transition: all 0.618s ease-out;
 	}
 	
 	.ggs-site-guide div{
-		background: @background;
+		background: @emphasis;
 		width:2px;
 		height:100%;
 		position:absolute;
@@ -315,32 +376,132 @@ body {
 }
 
 	#content header {
-		padding-top: 24/@em;
+		padding-top: 48/@em;
 	}
 
-	figure img {
-		width: 100%;
-		height: 240/@em;
+#features figure {
+	width: 100%;
+	height: 192/@em;
+}
+
+	.canvas {
+		background: @emphasis;
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.gutter, .margin {
+		height: 100%;
+		width: 24/@em;
+		background: @gold;
+		position: absolute;
+		left: 25%; top: 0;
+		margin-left: 12/@em*-1;
 	}
 	
-	#features {
-		border-bottom: 1/@em solid @body;
-		padding-bottom: 47/@em;
+	.gutter2 {
+		left: 50%;
 	}
 	
-	#gridlet {
-		padding-bottom: 47/@em;
+	.gutter3 {
+		left: 75%;
+	}
+	
+		.gutter div {
+			height: 100%;
+			position: absolute;
+			left: 50%; top: 0;
+			margin-left: 1/@em*-1;
+			width: 2/@em;
+			background: @emphasis;
+		}
+	
+	.margin {
+		left: 0;
+		margin: 0;
+		width: 12/@em;
+	}
+	
+		.right {
+			left: auto; right: 0;
+		}
+	
+	.line {
+		height: 23/@em;
+		border-bottom: 1/@em dotted @gold;
+	}
+	
+	.text {
+		position: absolute; 
+		left: 12/@em; top: 24/@em;
+		color: @gold;
+		white-space: pre;
+	}
+	
+		.twoLines {
+			font-size: 42/@em;
+			line-height: 48/42*1em;
+			left: 12/42*1em; top: 48/42*1em;
+		}
+		
+		.threeLines {
+			font-size: 68/@em;
+			line-height: 72/68*1em;
+			left: 12/68*1em; top: 96/68*1em;
+		}
+		
+		.fourLines {
+			font-size: 110/@em;
+			line-height: 120/110*1em;
+			left: 12/110*1em; top: 168/110*1em;
+		}
+		
+		.fiveLines {
+			font-size: 178/@em;
+			line-height: 168/178*1em;
+			left: 12/178*1em; top: 288/178*1em;
+		}
+		
+	.switch {
+		position: absolute;
+		right: 24/@em; top: 24/@em;
+		width: 24/@em;
+	}
+	
+		.switchBar {
+			height: 4/@em;
+			margin-bottom: 4/@em;
+			background: @gold;
+		}
+	
+	#folding .gutter1, #folding .gutter3 {
+		background: none;
+		border: dashed @gold;
+		border-width: 0 1/@em;
+		width: 22/@em;
 	}
 		
-	#tips {
-		clear: both;
-		border-top: 1/@em solid @body;
+	#gutters .canvas {
+		background: @emphasis;
 	}
+	
+		#gutters .gutter, #gutters .margin {
+			background: @gold;
+		}
+		
+	#baseline .canvas {
+		background: @emphasis;
+	}
+
+#guide {
+	clear: both;
+}
 
 #colophon {
 	clear: both;
-	padding: 35/@em 0 0;
-	border-top: 1/@em solid @body;
+	padding: 24/@em 0 0;
+	background: @highlight;
 }
 
 	#author, #promo, #follow {
@@ -350,37 +511,45 @@ body {
 	#copyright {
 		padding-bottom: 48/@em;
 	}
+	
+	#promoGroup .wrapper {
+		padding-left: 96/@em;
+		min-height: 96/@em;
+	}
+	
+		.ie #promoGroup .wrapper {
+			height: 96/@em;
+		}
 
-	#colophon h3 {
-		margin: 0;
-	}
-	
-	#author a, #promo a {
-		padding-left: 84/@em;
-		min-height: 72/@em;
-		display: block;
-		position: relative;
-	}
-	
-		.ie #author a, .ie #promo a {
-			height: 72/@em;
+		#colophon h3 {
+			margin: 0;
+			position: relative;
+			left: 84/@em * -1;
 		}
 	
 		#colophon img {
 			position: absolute;
-			left: 0; top: 0;
+			left: 12/@em; top: 24/@em;
 			width: 72/@em;
 			height: 72/@em;
 		}
 
-@media screen and (min-width: 480px) {
 
-	#guides {
-		height: 108/@em;
-	}
+/*
+*
+*  Fixes for IE6-8
+*  http://jonikorpi.com/leaving-old-IE-behind/
+*
+*/
 
+.ie body {
+	width: 640px;
+	margin: 0 auto;
+	border: solid @body;
+	border-width: 0 1/@em;
+	font-size: (@font-size + 1) / @em;
 }
-
+	
 
 /*
 *
@@ -395,10 +564,10 @@ body {
 	}
 	
 	#guides {
-		height: 180/@em;
+		height: (192)/@em;
 	}
 	
-	.wrapper, #promoGroup {
+	#promoGroup {
 		-webkit-box-sizing: border-box;
 		   -moz-box-sizing: border-box;
 			 -o-box-sizing: border-box;
@@ -434,7 +603,7 @@ body {
 
 /*
 *
-*  Eight-column layout
+*  Eight-column grid active
 *  ----------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8   |   Margin
 *  5.55555% | %  12.5  25.0  37.5  50.0  62.5  75.0  87.5  100 | 5.55555%
@@ -442,30 +611,42 @@ body {
 *
 */
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 744px) {
 	
 	body {
 		font-size: (@font-size) / @em;
 	}
 	
-	#guides {
-		height: 396/@em;
-	}
-	
-	#masthead {
-		padding: 48/@em 0 24/@em;
-	}
-	
-	#masthead .wrapper, #content .wrapper {
+	#masthead .wrapper, #content .wrapper, #navigation ul {
 		margin: 0 12.5%;
 	}
 	
-	h1 {
-		.huge();
+	#guides {
+		height: (432)/@em;
 	}
+	
+	#masthead {
+		padding: 48/@em 0 36/@em;
+	}
+	
+		h1 {
+			.huge();
+		}
 	
 	#masthead p, #follow p {
 		.large();
+	}
+	
+	#download h3 {
+		float: left;
+		margin: 0;
+		clear: left;
+		width: 84/@em;
+	}
+	
+	#download div p {
+		padding-left: 96/@em;
+		margin-top: 24/@em;
 	}
 	
 }
@@ -496,69 +677,100 @@ body {
 		font-size: (@font-size) / @em;
 	}
 	
-	#content {
-		float: left;
-		margin-bottom: 60/@em;
-	}
-	
-	#masthead .wrapper, #content .wrapper {
+	#masthead .wrapper, #content .wrapper, #navigation ul {
 		margin: 0;
 	}
 	
+	#navigation {
+		padding: 0;
+		float: none;
+		background: none;
+	}
+	
+		#navigation .inner {
+			position: relative;
+		}
+		
+		#navigation ul {
+			position: absolute;
+			right: 0; top: 60/@em;
+		}
+	
+		#navigation li {
+			margin: 0 0 0 18/@em;
+			text-align: right;
+		}
+	
+	#content {
+		float: left;
+		margin-bottom: 72/@em;
+	}
+	
+		#content header {
+			padding-top: 72/@em;
+		}
+		
+		h2 {
+			.huge();
+			margin-bottom: 12 / 42*1em;
+		}
+		
+		#content header p {
+			.large();
+			padding-bottom: 23/26*1em;
+			border-bottom: 1/26*1em dotted @body;
+		}
+	
 	#features {
+		
+	}
+	
+		#features section.wrapper {
+			width: 50%;
+		}
+		
+			#features section.wrapper:nth-of-type(2n) {
+				margin-left: 50%;
+			}
+		
+		#features figure {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0; right: -100%;
+		}
+		
+			#features section.wrapper:nth-of-type(2n) figure {
+				right: auto; left: -100%;
+			}
+		
+			.canvas {
+				margin: 0 12/@em;
+			}
+	
+	#download div.wrapper {
+		float: left;
+		width: 25%;
+	}
+	
+		#download h3 {
+			float: none;
+			clear: none;
+			width: auto;
+			margin: 24/@em 0 24/@em;
+		}
+	
+		#download div p {
+			padding: 0;
+		}
+		
+	#guide {
 		float: left;
 	}
-	
-		#code, #gridlet, #features section {
+		
+		#guide div.wrapper {
 			width: 50%;
 			float: left;
-		}
-	
-		#features section:nth-of-type(2n+1), #code {
-			clear: left;
-		}
-	
-		#features header {
-			width: 75%;
-		}
-	
-		#tips div.wrapper {
-			-webkit-column-count: 2;
-			-webkit-column-gap: 24/@em;
-			-moz-column-count: 2;
-			-moz-column-gap: 24/@em;
-			column-count: 2;
-			column-gap: 24/@em;
-		}
-		
-	#features, #gridlet, #code {
-		padding-bottom: 59/@em;
-	}
-		
-	h2 {
-		.huge();
-	}
-	
-	#content header {
-		padding-top: 36/@em;
-	}
-	
-	#content header p, #content h3 {
-		.large();
-	}
-	
-		#content header p {
-			margin-top: 6/26*1em;
-			margin-bottom: 18/26*1em;
-			font-style: normal;
-		}
-		
-			#features header p {
-				margin-bottom: 0;
-			}
-			
-		#content h3 {
-			margin-top: 24 / 26*1em;
 		}
 
 }
@@ -576,10 +788,11 @@ body {
 		font-size: (@font-size + 1) / @em;
 	}
 	
-	#promoGroup .wrapper {
-		width: 50%;
-		float: left;
+	#promoGroup {
+		width: 37.5%;
+		margin-right: 12.5%;
 	}
+	
 }
 
 
@@ -595,21 +808,14 @@ body {
 		font-size: (@font-size) / @em;
 	}
 	
-	#masthead, #content {
+	#masthead, #content, .inner {
 		margin-left: @column*3;
 		margin-right: @column*3;
 	}
 	
-	#follow, #copyright {
-		width: 25%;
-	}
-	
 	#promoGroup {
-		float: left;
-	}
-	
-	#follow, #author {
-		padding-bottom: 60/@em;
+		width: 50%;
+		margin: 0;
 	}
 }
 
@@ -624,12 +830,18 @@ body {
 	body {
 		font-size: (@font-size + 1) / @em;
 	}
+	
+	#promoGroup {
+		width: 33.333333333%;
+		margin-right: 16.666666667%;
+	}
+	
 }
 
 
 /*
 *
-*  Sixteen-column layout
+*  Sixteen-column grid active
 *  ----------------------------------------------------------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16  |   Margin
 *  5.55555% | %  6.25  12.5  18.75 25.0  31.25 37.5  43.75 50.0  56.25 62.5  68.75 75.0  81.25 87.5  93.75 100 | 5.55555%
@@ -639,72 +851,48 @@ body {
 
 @media screen and (min-width: 1872px) {
 	
+	#masthead, #content, #navigation .inner, #colophon .inner {
+		margin-left: @column*4;
+		margin-right: @column*4;
+	}
+	
+	
 	#masthead {
 		padding: 72/@em 0 48/@em;
 	}
 	
-	#masthead, #content, #colophon .inner {
-		margin-left: @column;
-		margin-right: @column;
-	}
-	
-	h1 {
-		.massive();
-	}
-	
-	#masthead p {
-		.huge();
-	}
-	
-	#guides {
-		height: 612/@em;
-	}
-	
-		#features section, #features section:nth-of-type(2n+1), #code, #gridlet {
-			width: 25%;
-			clear: none;
+		h1 {
+			.massive();
 		}
 		
-			#features header {
-				width: 50%;
-			}
-		
-	#code {
-		clear: left;
-		margin-left: 25%;
+		#masthead p {
+			.huge();
+		}
+	
+	#guides {
+		height: (384)/@em;
 	}
 	
-	#tips {
-		padding: 0 25%;
+	#features header {
+		padding-top: 48/@em;
 	}
 	
 	#promoGroup {
 		width: 37.5%;
-	}
-	
-	#follow, #copyright {
-		width: 31.25%;
+		margin: 0 12.5% 0 0;
 	}
 	
 }
 
 @media screen and (min-width: 2080px) {
-	
-	#features header {
-		width: 37.5%;
+
+	#masthead, #content, #navigation .inner, #colophon .inner {
+		margin-left: @column*5;
+		margin-right: @column*5;
 	}
 	
-	#follow, #copyright {
-		width: 25%;
-	}
-	
-	#copyright {
-		float: right;
-	}
-	
-	#promoGroup {
-		width: 50%;
-		padding: 0 6.25%;
+	#guides {
+		height: (624)/@em;
 	}
 	
 }
@@ -725,9 +913,9 @@ body {
 
 @media screen and (min-width: 3216px) {
 	
-	#masthead, #content, #colophon .inner {
-		margin-left: @column*3;
-		margin-right: @column*3;
+	#masthead, #content, #navigation .inner, #colophon .inner {
+		margin-left: @column*6;
+		margin-right: @column*6;
 	}
 	
 }
@@ -753,9 +941,9 @@ body {
 		max-width: 5120px;
 	}
 	
-	#masthead, #content, #colophon .inner {
-		margin-left: @column*5;
-		margin-right: @column*5;
+	#masthead, #content, #navigation .inner, #colophon .inner {
+		margin-left: @column*7;
+		margin-right: @column*7;
 	}
 	
 }
