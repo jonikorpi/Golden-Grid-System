@@ -1,0 +1,299 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+	
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		
+		<title>Golden Grid System</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="GGS.css"/>
+		<script type="text/javascript" src="http://use.typekit.com/xoy3bkl.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script src="GGS.js"></script>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="apple-touch-icon" sizes="114x114" href="icon.png"/>
+		
+		<meta name="description" content="A grid system for responsive web design. Includes folding columns, elastic gutters, a zoomable baseline grid, and a delightful grid overlay script."/>
+	</head>
+	
+	<body lang="en">
+	
+		<nav id="navigation">
+			<div class="inner">
+				<ul class="wrapper">
+					<li>
+						<a href="#features">
+							Features
+						</a>	
+					</li>
+					<li>
+						<a href="#download">
+							Download
+						</a>
+					</li>
+					<li>
+						<a href="#guide">
+							Guide
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<header id="masthead">
+			<div class="wrapper">
+				<h1>
+					Golden Grid System
+				</h1>
+				<p>
+					A folding grid for responsive web design
+				</p>
+			</div>
+		</header>
+		
+		<figure id="guides">
+			<div class="ggs-site-guide ggs-site-0"><div></div></div>
+			<div class="ggs-site-guide ggs-site-1"><div></div></div>
+			<div class="ggs-site-guide ggs-site-2"><div></div></div>
+			<div class="ggs-site-guide ggs-site-3"><div></div></div>
+			<div class="ggs-site-guide ggs-site-4"><div></div></div>
+			<div class="ggs-site-guide ggs-site-5"><div></div></div>
+			<div class="ggs-site-guide ggs-site-6"><div></div></div>
+			<div class="ggs-site-guide ggs-site-7"><div></div></div>
+			<div class="ggs-site-guide ggs-site-8"><div></div></div>
+			<div class="ggs-site-guide ggs-site-9"><div></div></div>
+			<div class="ggs-site-guide ggs-site-10"><div></div></div>
+			<div class="ggs-site-guide ggs-site-11"><div></div></div>
+			<div class="ggs-site-guide ggs-site-12"><div></div></div>
+			<div class="ggs-site-guide ggs-site-13"><div></div></div>
+			<div class="ggs-site-guide ggs-site-14"><div></div></div>
+			<div class="ggs-site-guide ggs-site-15"><div></div></div>
+			<div class="ggs-site-guide ggs-site-16"><div></div></div>
+		</figure>
+		
+		<article id="content">
+		
+			<section id="features">
+				<header class="wrapper">
+					<h2>The Four Features</h2>
+					<p>Columns, gutters, a baseline and a script.</p>
+				</header>
+				<section class="wrapper">		
+					<h3>Folding columns</h3>
+					
+					<figure id="folding">
+						<div class="canvas">
+							<div class="margin"></div>
+							<div class="gutter gutter1"></div>
+							<div class="gutter gutter2"></div>
+							<div class="gutter gutter3"></div>
+							<div class="margin right"></div>
+						</div>
+					</figure>
+<p>The GSS grid splits the screen into 18 even columns. The leftmost and rightmost columns are used as the outer margins of the grid, which leaves 16 columns for use in design.</p>
+
+<p>16 columns sounds a bit much for anything other than huge widescreen monitors. This is where the folding columns come in. Inspired by the DIN paper system and Unigrid, the 16 columns can be combined, or <em>folded</em>, into 8 columns for medium-sized screens, and into 4 columns for mobile-sized ones. This way the GGS grid can easily cover any screen sizes from 240 up to 2560 pixels.</p>
+
+<p>The dimensions of the grid in each configuration — 16, 8 and 4 columns — are noted down within CSS comments, accompanied by suitable media queries, like thus:</p>
+
+<pre><code>/*
+*  Four-column grid active
+*  ----------------------------------------
+*  Margin   | #  1   2   3   4   |   Margin
+*  5.55555% | %  25  50  75  100 | 5.55555%
+*/
+</code></pre>
+				</section>
+				<section class="wrapper">
+					<h3>Elastic gutters</h3>
+					
+					<figure id="gutters">
+						<div class="canvas">
+							<div class="margin"></div>
+							<div class="gutter gutter1"><div></div></div>
+							<div class="gutter gutter2"><div></div></div>
+							<div class="gutter gutter3"><div></div></div>
+							<div class="margin right"></div>
+						</div>
+					</figure>
+					
+<p>While the column widths in GGS are proportional to the screen's width, the widths of its gutters (the spaces between columns) are proportional to the page's font-size, specified in ems.</p>
+
+<p>Responsive grids that use gutters proportional to the screen can make the content feel like it's being <em>squeezed together</em> or <em>pulled apart</em> as the screen width changes. With elastic gutters this just doesn't happen, as the gutters always stay in proportion to the content.</p>
+
+<p>Elastic gutters are created by positioning elements in the center of the gutter (using percentages) and giving them a padding equal to half of the gutter's width. For example: </p>
+
+<pre><code>article {
+    width: 50%;
+    margin-left: 25%;
+}
+article .wrapper {
+    /* Assuming gutter width = 1.5em */
+    padding: 0 0.75em; 
+}
+</code></pre>
+				</section>
+				<section class="wrapper">
+					<h3>Zoomable baseline grid</h3>
+	
+					<figure id="baseline">
+						<div class="canvas">
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="text">ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ123581321345589144233377610</div>
+							<div class="text twoLines">ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ</div>
+							<div class="text threeLines">ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ</div>
+							<div class="text fourLines">ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ</div>
+							<div class="text fiveLines">ABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ</div>
+						</div>
+					</figure>
+					
+<p>Responsive layouts often require you to change the font-size at certain screen widths, for example to make the text bigger and thus easier to read on huge monitors, or to make the text fit better onto small mobile screens. This can make the layout feel weird, especially if you're using a <a href="http://www.alistapart.com/articles/settingtypeontheweb">baseline grid</a>. GGS's zoomable baseline grid gets around this problem.</p>
+
+<p>If you specify all your font-sizes, line-heights, as well as vertical paddings, margins and borders in ems, they'll all scale in proportion as the font-size is changed using media queries, always keeping the baseline grid intact (save for a 1px rounding error or two), which lets the layout keep the same vertical rhythm regardless of screen size.</p>
+
+<p>GGS comes with a set of type presets and aligned to a baseline grid, which is based on a base line-height of 1.5. Feel free to replace them with your own presets, though.</p>
+				</section>
+				<section class="wrapper">
+					<h3>Golden Gridlet</h3>
+	
+					<figure id="gridlet">
+						<div class="canvas">
+							<div class="switch">
+								<div class="switchBar"></div>
+								<div class="switchBar"></div>
+								<div class="switchBar"></div>
+							</div>
+						</div>
+					</figure>
+					
+<p>Aligning elements in responsive layouts can be difficult with all the percentage values flying around. GGS comes with <em>Golden Gridlet</em>, a little script that adds a button into the upper right corner of the page. When clicked or tapped, it overlays the GGS grid and a baseline grid of 1.5em onto the page, making it easy to visually check that design elements align up.</p>
+
+<p>Golden Gridlet should work in most modern browsers, and since it doesn't rely on a keyboard, it can be used on touch screen devices as well. In modern browsers, the overlay appears with a pleasing CSS3 transition. Give it a try by clicking or tapping the icon in the upper right corner of this page. It's pretty fun.</p>
+				</section>
+			</section>
+			
+			<section id="download">
+				<header class="wrapper">
+					<h2>Download</h2>
+					<p>Four files, <a href="https://github.com/jonikorpi/Golden-Grid-System">hosted on Github</a>.</p>
+				</header>
+				<div class="wrapper">
+					<h3><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/GGS.html">GGS.html</a></h3>
+					
+					<p>Contains the required markup, as well as a simple demo of the grid in use.</p>
+				</div>
+				<div class="wrapper">
+					<h3><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/GGS.css">GGS.css</a></h3>
+					
+					<p>Contains the CSS. Details of its contents are included in CSS comments throughout the file.</p>
+				</div>
+				<div class="wrapper">	
+					<h3><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/GGS.less">GGS.less</a></h3>
+					
+					<p>Contains the source of GGS.css, written using the <a href="http://lesscss.org/">LESS CSS</a> language. It's not mandatory, but works as a nice starting point for LESS users.</p>
+				</div>
+				<div class="wrapper">	
+					<h3><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/GGS.js">GGS.js</a></h3>
+					
+					<p>When included in a page, adds a button in the upper right corner that toggles the grid overlay. Can be customized around the top of the file. Powered by the <a href="http://ender.no.de/">Ender library</a>.</p> 
+				</div>
+			</section>
+			
+			<section id="guide">
+				<header class="wrapper">
+					<h2>Useful tips</h2>
+					<p>And answers to some FAQs.</p>
+				</header>
+				<div class="wrapper">
+					
+<h3>Don't use GGS as it is.</h3>
+
+<p>Take it apart, steal the parts that you like, and adapt them to your own way of working.</p>
+
+<h3>Fluid design is <em>hard</em>.</h3>
+
+<p>Don't give up. Read <a href="http://www.alistapart.com/articles/fluidgrids/">Fluid Grids</a> and <a href="http://www.abookapart.com/products/responsive-web-design">Responsive Web Design</a> by <a href="http://ethanmarcotte.com/">Ethan Marcotte</a>. They help a lot.</p>
+
+<h3>Don't set a max-width.</h3>
+
+<p>Or at least don't set one below 2560px. When your content starts getting too wide,  use the zoomable baseline grid to make it fit a little better, or add some empty columns on the sides. The whole point of a fluid grid is to use the screen's proportions to align elements, so stick to it.</p>
+
+				</div>
+				<div class="wrapper">
+					
+<h3>Serve IE6–8 just the mobile layout.</h3>
+
+<p>Old IE won't see any styles that are inside a media query, so just serve it your mobile layout and enhance it a little with <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/">IE-specific classes</a>. Not having to worry about old IE makes coding the wider layouts so much easier. More about this in my blog post: <a href="http://jonikorpi.com/leaving-old-IE-behind/">Leaving Old Internet Explorer Behind</a>.</p>
+
+<h3>Use box-sizing: border-box;</h3>
+
+<p>It lets you give the same element both a width in percentages as well as a padding in ems, which is required for the elastic gutters to work. If you followed my advice about IE6–8 above, you can use this inside media queries without worrying about browser support.</p>
+
+<h3>Mobile Safari causing trouble?</h3>
+
+<p>Does your site zoom in too much when changing orientations on an iOS device? It's because of <a href="http://filamentgroup.com/examples/iosScaleBug/">this Mobile Safari bug</a>.</p>
+				</div>
+			</section>
+			
+		</article>
+		
+		<footer id="colophon">
+			<div class="inner">
+				
+				<section id="follow" class="wrapper">
+					<p>
+					<a href="http://twitter.com/jonikorpi/">Follow @jonikorpi</a> on Twitter to stay up to date with Golden Grid System.
+					</p>
+				</section>
+				
+				<div id="promoGroup">	
+					<section id="author" class="wrapper">
+						<h3>Developed by</h3>
+						<a href="http://jonikorpi.com/">
+							<img src="" alt="Avatar"/>
+						</a>
+						<p>
+							<a href="http://jonikorpi.com/">Joni Korpi</a> &mdash; a web designer from Espoo, Finland. Looking for a job soon. 
+						</p>
+					</section>
+					<section id="promo" class="wrapper">
+						<h3>Also check out</h3>
+						<a href="http://lessframework.com/">
+							<img src="" alt="Icon"/>					
+						</a>
+						<p>
+							<a href="http://lessframework.com/">Less Framework</a> &mdash; an adaptive CSS grid system for static-width layouts.
+						</p>
+					</section>
+				</div>
+				
+				<section id="copyright" class="wrapper">
+					<p>Golden Grid System is licensed under MIT. This site and its design copyright Joni Korpi. All rights reserved. Max-width: 5120px;</p>
+				</section>
+			
+			</div>
+		</footer>
+			
+	</body>
+	
+</html>
