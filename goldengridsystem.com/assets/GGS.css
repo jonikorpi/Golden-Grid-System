@@ -273,7 +273,7 @@ h3 {
   margin: 1.5em 0 0;
 }
 #colophon h3 {
-  border-bottom: 0.0625em dotted #9e9986;
+  border-bottom: 0.0625em dotted #9e9c95;
   margin: 0 0 0.6875em;
 }
 /*
@@ -284,11 +284,12 @@ h3 {
 h1,
 h2,
 h3,
-strong {
+strong,
+code {
   color: #171409;
 }
 #colophon {
-  color: #9e9986;
+  color: #9e9c95;
 }
 #follow p, #colophon h3 {
   color: #fffefa;
@@ -785,12 +786,6 @@ body {
   #guide div.wrapper {
     width: 50%;
     float: left;
-  }
-  #colophon {
-    padding-top: 2.25em;
-  }
-  #promoGroup #promo, #copyright {
-    margin-bottom: 3.75em;
   }
 }
 /*

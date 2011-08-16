@@ -30,7 +30,7 @@
 					Golden Grid System
 				</h1>
 				<p>
-					A folding grid for responsive web design
+					A folding grid for responsive design.
 				</p>
 			</div>
 		</header>
@@ -59,7 +59,7 @@
 		
 			<section id="features">
 				<header class="wrapper">
-					<h2>The Four Features</h2>
+					<h2>Four features</h2>
 					<p>Columns, gutters, a baseline and a script.</p>
 				</header>
 				<section class="wrapper">		
@@ -74,11 +74,11 @@
 							<div class="margin right"></div>
 						</div>
 					</figure>
-<p>The GSS grid splits the screen into 18 even columns. The leftmost and rightmost columns are used as the outer margins of the grid, which leaves 16 columns for use in design.</p>
+<p>Golden Grid System (GSS) splits the screen into 18 even columns. The leftmost and rightmost columns are used as the outer margins of the grid, which leaves <em>16 columns</em> for use in design.</p>
 
-<p>16 columns sounds a bit much for anything other than huge widescreen monitors. This is where the folding columns come in. Inspired by the DIN paper system and Unigrid, the 16 columns can be combined, or <em>folded</em>, into 8 columns for medium-sized screens, and into 4 columns for mobile-sized ones. This way the GGS grid can easily cover any screen sizes from 240 up to 2560 pixels.</p>
+<p>Now, 16 columns sounds a bit much for anything other than huge widescreen monitors. This is where the folding, inspired by the <a href="http://en.wikipedia.org/wiki/Paper_size#The_international_standard:_ISO_216">DIN paper system</a> and <a href="http://www.aisleone.net/2010/design/massimo-vignellis-unigrid-system/">Unigrid</a>, comes in. The 16 columns can be combined, or <em>folded</em>, into <em>8 columns</em> for tablet-sized screens, and into <em>4 columns</em> for mobile-sized ones. This way GGS can easily cover any screen sizes from 240 up to 2560 pixels.</p>
 
-<p>The dimensions of the grid in each configuration — 16, 8 and 4 columns — are noted down within CSS comments, accompanied by suitable media queries, like thus:</p>
+<p>The dimensions of the grid in each configuration are noted down within CSS comments, accompanied by suitable media queries, like thus:</p>
 
 <pre><code>/*
 *  Four-column grid active
@@ -107,7 +107,7 @@
 
 <p>Elastic gutters are created by positioning elements in the center of the gutter (using percentages) and giving them a padding equal to half of the gutter's width. For example: </p>
 
-<pre><code>article {
+<pre><code>.wrapper {
     width: 50%;
     margin-left: 25%;
     /* Assuming gutter width = 1.5em */
@@ -143,7 +143,7 @@
 						</div>
 					</figure>
 					
-<p>Responsive layouts often require you to change the font-size at certain screen widths, for example to make the text bigger and thus easier to read on huge monitors, or to make the text fit better onto small mobile screens. This can make the layout feel weird, especially if you're using a <a href="http://www.alistapart.com/articles/settingtypeontheweb">baseline grid</a>. GGS's zoomable baseline grid gets around this problem.</p>
+<p>Responsive layouts often require you to change the font-size at certain screen widths, for example to make the text easier to read on huge monitors, or to make the text fit better onto narrow mobile screens. This can make the proportions of your layout feel off, especially if you're using a <a href="http://www.alistapart.com/articles/settingtypeontheweb">baseline grid</a>. GGS's zoomable baseline grid gets around this problem.</p>
 
 <p>If you specify all your font-sizes, line-heights, as well as vertical paddings, margins and borders in ems, they'll all scale in proportion as the font-size is changed using media queries, always keeping the baseline grid intact (save for a 1px rounding error or two), which lets the layout keep the same vertical rhythm regardless of screen size.</p>
 
@@ -170,8 +170,8 @@
 			
 			<section id="download">
 				<header class="wrapper">
-					<h2>Download</h2>
-					<p>Four files, <a href="https://github.com/jonikorpi/Golden-Grid-System">hosted on Github</a>.</p>
+					<h2>Four downloads</h2>
+					<p>All <a href="https://github.com/jonikorpi/Golden-Grid-System">hosted on Github</a>.</p>
 				</header>
 				<div class="wrapper">
 					<h3><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/GGS.html">GGS.html</a></h3>
@@ -191,13 +191,13 @@
 				<div class="wrapper">	
 					<h3><a href="https://github.com/jonikorpi/Golden-Grid-System/blob/master/GGS.js">GGS.js</a></h3>
 					
-					<p>When included in a page, adds a button in the upper right corner that toggles the grid overlay. Can be customized around the top of the file. Powered by the <a href="http://ender.no.de/">Ender library</a>.</p> 
+					<p>Adds a button that toggles the grid overlay in the upper right corner of the page. Can be customized around the top of the file. Powered by the <a href="http://ender.no.de/">Ender library</a>.</p> 
 				</div>
 			</section>
 			
 			<section id="guide">
 				<header class="wrapper">
-					<h2>Useful tips</h2>
+					<h2>Many useful tips</h2>
 					<p>And answers to some FAQs.</p>
 				</header>
 				<div class="wrapper">
@@ -206,13 +206,17 @@
 
 <p>Take it apart, steal the parts that you like, and adapt them to your own way of working.</p>
 
-<h3>Fluid design is <em>hard</em>.</h3>
+<h3>Fluid design is hard.</h3>
 
-<p>Don't give up. Read <a href="http://www.alistapart.com/articles/fluidgrids/">Fluid Grids</a> and <a href="http://www.abookapart.com/products/responsive-web-design">Responsive Web Design</a> by <a href="http://ethanmarcotte.com/">Ethan Marcotte</a>. They help a lot.</p>
+<p><em>Really hard.</em> Don't give up. Read <a href="http://www.alistapart.com/articles/fluidgrids/">Fluid Grids</a> and <a href="http://www.abookapart.com/products/responsive-web-design">Responsive Web Design</a> by <a href="http://ethanmarcotte.com/">Ethan Marcotte</a>. They help a lot.</p>
 
 <h3>Don't set a max-width.</h3>
 
 <p>Or at least don't set one below 2560px. When your content starts getting too wide,  use the zoomable baseline grid to make it fit a little better, or add some empty columns on the sides. The whole point of a fluid grid is to use the screen's proportions to align elements, so stick to it.</p>
+
+<h3>Mobile Safari causing trouble?</h3>
+
+<p>Does your site zoom in too much when changing orientations on an iOS device? It's because of <a href="http://filamentgroup.com/examples/iosScaleBug/">this Mobile Safari bug</a>.</p>
 
 				</div>
 				<div class="wrapper">
@@ -225,9 +229,6 @@
 
 <p>It lets you give the same element both a width in percentages as well as a padding in ems, which is required for the elastic gutters to work. If you followed my advice about IE6–8 above, you can use this inside media queries without worrying about browser support.</p>
 
-<h3>Mobile Safari causing trouble?</h3>
-
-<p>Does your site zoom in too much when changing orientations on an iOS device? It's because of <a href="http://filamentgroup.com/examples/iosScaleBug/">this Mobile Safari bug</a>.</p>
 				</div>
 			</section>
 			
@@ -250,7 +251,7 @@
 						</a>
 						<p>
 							<a href="http://jonikorpi.com/">Joni Korpi</a> <br/>
-							A web designer from Espoo, Finland. Looking for a job around Summer&nbsp;2012. 
+							A web designer from Espoo, Finland. Looking for a job around summer&nbsp;2012. 
 						</p>
 					</section>
 					<section id="promo" class="wrapper">

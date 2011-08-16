@@ -24,6 +24,10 @@ var sixteenColBreakpoint = ((1872-1) / baseFontSize)+'em';
 *  the <body> element of your page has a set width and 
 *  position: relative;, because the guides are appended 
 *  inside <body>, but positioned in relation to <html>.
+*
+*  Also note that the baseline grid doesn't really align
+*  up anymore after zooming the baseline grid in or out,
+*  because of rounding errors.
 */
 
 
