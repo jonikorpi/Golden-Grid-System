@@ -14,7 +14,7 @@
 @line: 24;
 @column: 100% / 18;
 @font-size: 16;
-@em: @font-size*1em;
+@em:@font-size*1em;
 
 
 /*
@@ -130,39 +130,45 @@ img {
 */
 
 body {
-	font-size: @font-size / 16 * 1em; // 16px
-	line-height: @line / @em; // 24 px
-	font-family: sans-serif;
+	/* 16px / 24px */
+	font-size: @font-size / 16 * 1em; 
+	line-height: @line / @em;
 }
 
-.small, small, code, #copyright p {
-	font-size: (@font-size*0.8125) / @em; // 13px
-	line-height: (@line*0.75) / (@font-size*0.8125) * 1em; // 18px
+.small {
+	/* 13px / 18px */
+	font-size: (@font-size*0.8125) / @em;
+	line-height: (@line*0.75) / (@font-size*0.8125) * 1em;
 }
 
-.normal, h4, h3 {
-	font-size: @font-size / @em; // 16px
-	line-height: @line / @em; // 24px
+.normal, h3 {
+	/* 16px / 24px */
+	font-size: @font-size / @em;
+	line-height: @line / @em; /* 24 */
 }
 
-.large, h2, h1, .icon {
-	font-size: 26 / @em; // 26px
-	line-height: (@line*1.5) / 26 * 1em; // 36 px
+.large, h2, h1 {
+	/* 26 / 36px */
+	font-size: 26 / @em;
+	line-height: (@line*1.5) / 26 * 1em;
 }
 
 .huge {
-	font-size: 42 / @em; // 42px
-	line-height: (@line*2) / 42 * 1em; // 48 px
+	/* 42px / 48px */
+	font-size: 42 / @em;
+	line-height: (@line*2) / 42 * 1em;
 }
 
 .massive {
-	font-size: 68 / @em; // 68px
-	line-height: (@line*3) / 68 * 1em; // 72 px
+	/* 68px / 72px */
+	font-size: 68 / @em;
+	line-height: (@line*3) / 68 * 1em;
 }
 
 .gigantic {
-	font-size: 110 / @em; // 110px
-	line-height: (@line*5) / 110 * 1em; // 120 px
+	/* 110px / 120px */
+	font-size: 110 / @em;
+	line-height: (@line*5) / 110 * 1em;
 }
 
 
@@ -175,15 +181,26 @@ body {
 *
 */
 
-body {
+header, #twoway {
+	margin: 0 @column;
+	font-family: sans-serif;
+}
 
+h1, h2 {
+	margin: (24/26*1em) 0 (36/26*1em);
+}
+
+h2 {
+	font-weight: normal;
+}
+
+h3 {
+	margin: (24/@em) 0 (24/@em);
 }
 
 /*
-*
 *  Simple elastic gutters
 *  Note: box-sizing will not work in IE6-8
-*
 */
 
 .wrapper {
@@ -203,17 +220,27 @@ body {
 */
 
 .ie body {
-	width: 640px;
+	width: 640/@em;
 	margin: 0 auto;
 	font-size: (@font-size + 1) / @em;
 }
 
+.ie h1 {
+	.huge();
+	margin: (48/42*1em) 0 (24/42*1em);
+}
 
-@media screen and (min-width: 640px) {
+/* @media screen and (min-width: 640px) */
+@media screen and (min-width: 40em) {
 	
 	body {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
 		font-size: (@font-size + 1) / @em;
+	}
+	
+	h1 {
+		.huge();
+		margin: (48/42*1em) 0 (24/42*1em);
 	}
 	
 }
@@ -229,17 +256,24 @@ body {
 *
 */
 
-@media screen and (min-width: 744px) {
+/* @media screen and (min-width: 720px) */
+@media screen and (min-width: 45em) {
 	
 	body {
 		/* Reset baseline grid to 16/16 = 1 */
 		font-size: (@font-size) / @em;
 	}
 	
+	#twoway .wrapper {
+		float: left;
+		width: 50%;
+	}
+	
 }
 
 
-@media screen and (min-width: 888px) {
+/* @media screen and (min-width: 888px) */
+@media screen and (min-width: 55.5em) {
 	
 	body {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
@@ -248,48 +282,49 @@ body {
 }
 
 
-@media screen and (min-width: 984px) {
+/* @media screen and (min-width: 984px) */
+@media screen and (min-width: 61.5em) {
 	
 	body {
 		/* Reset baseline grid to 16/16 = 1.0 */
 		font-size: (@font-size) / @em; 
 	}
+	
+	header, #twoway {
+		margin: 0 @column*3;
+	}
 
 }
 
 
-/*
-*
-*  
-*
-*/
-
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) */
+@media screen and (min-width: 75em) {
 	
 	body {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
 		font-size: (@font-size + 1) / @em;
 	}
 	
-	#promoGroup {
-		width: 37.5%;
-		margin-right: 12.5%;
-	}
-	
 }
 
 
-@media screen and (min-width: 1392px) {
+/* @media screen and (min-width: 1392px) */
+@media screen and (min-width: 87em) {
 	
 	body {
 		/* Reset baseline grid to 16/16 = 1.0 */
 		font-size: (@font-size) / @em;
 	}
 	
+	header, #twoway {
+		margin: 0 @column*5;
+	}
+	
 }
 
 
-@media screen and (min-width: 1680px) {
+/* @media screen and (min-width: 1680px) */
+@media screen and (min-width: 105em) {
 	
 	body {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
@@ -309,51 +344,36 @@ body {
 *
 */
 
-@media screen and (min-width: 1872px) {
+/* @media screen and (min-width: 1872px) */
+@media screen and (min-width: 117em) {
 	
+	header, #twoway {
+		margin: 0 @column*1;
+	}
 	
+	header .wrapper {
+		width: 37.5%;
+		margin-left: 25%;
+	}
+	
+	#twoway .wrapper {
+		width: 25%;
+	}
+	
+	#twoway .wrapper:first-child {
+		margin-left: 25%;
+	}
 	
 }
 
 
-@media screen and (min-width: 2080px) {
+/* @media screen and (min-width: 2080px) */
+@media screen and (min-width: 130em) {
 
-	
-	
-}
-
-
-@media screen and (min-width: 2496px) {
-	
 	body {
 		/* Zoom baseline grid to 18/16 = 1.125 */
 		font-size: (@font-size + 2) / @em;
-	}
-	
-}
-
-
-@media screen and (min-width: 3216px) {
-	
-	
-	
-}
-
-
-@media screen and (min-width: 4104px) {
-	
-	body {
-		/* Zoom baseline grid to 19/16 = 1.1875 */
-		font-size: (@font-size + 3) / @em;
-	}
-	
-}
-
-@media screen and (min-width: 4440px) {
-	
-	body {
-		position: relative;
-		max-width: 5120px;
+		max-width: 2560/em;
 	}
 	
 }

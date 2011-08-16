@@ -1,0 +1,956 @@
+/*
+*
+*  Golden Grid System (1.0a)	<http://???.com/>
+*  by Joni Korpi 				<http://jonikorpi.com/>
+*  licensed under MIT			<http://opensource.org/licenses/mit-license.php>
+*	
+*/
+
+@import 'helpful-LESS-functions.less';
+
+//
+// Important numbers
+//
+@line: 24;
+@column: 100% / 18;
+@font-size: 16;
+@em: @font-size*1em;
+
+/*
+*
+*  Margin, padding, and border resets
+*  except for form elements
+*
+*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video, canvas {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+/*
+*
+*  Consistency fixes
+*  adopted from http://necolas.github.com/normalize.css/
+*
+*/
+
+html {
+	height: 100%; 
+	-webkit-text-size-adjust: 100%; 
+	-ms-text-size-adjust: 100%;
+}
+body {
+	min-height: 100%; 
+	font-size: 100%;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, nav, section, audio, canvas, video {
+	display: block;
+}
+sub, sup {
+	font-size: 75%; 
+	line-height: 0; 
+	position: relative; 
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+pre {
+	white-space: pre; 
+	white-space: pre-wrap; 
+	word-wrap: break-word;
+}
+b, strong {
+	font-weight: bold;
+}
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+input, textarea, button, select {
+	margin: 0;
+	font-size: 100%;
+	line-height: normal;
+	vertical-align: baseline;
+}
+button,
+html input[type="button"], 
+input[type="reset"], 
+input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+			box-sizing: border-box;
+}
+textarea {
+	overflow: auto;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/*
+*
+*  Simple fluid media
+*
+*/
+
+figure {
+	position: relative;
+}
+figure img, figure object, figure embed, figure video {
+	max-width: 100%; 
+	display: block;
+}
+img {
+	border: 0; 
+	-ms-interpolation-mode: bicubic;
+}
+
+
+/*
+*
+*  Simple elastic gutters
+*  Note: box-sizing will not work in IE6-8
+*
+*/
+
+.wrapper {
+	padding: 0 (@line/2)/@em;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+
+/*
+*
+*	Zoomable baseline grid
+*	type size presets
+*
+*/
+
+body {
+	font-size: @font-size / 16 * 1em; // 16px
+	line-height: @line / @em; // 24 px
+}
+
+.small, small, code, #copyright p {
+	font-size: (@font-size*0.8125) / @em; // 13px
+	line-height: (@line*0.75) / (@font-size*0.8125) * 1em; // 18px
+}
+
+.normal, h4, h3 {
+	font-size: @font-size / @em; // 16px
+	line-height: @line / @em; // 24px
+}
+
+.large, h2, h1 {
+	font-size: 26 / @em; // 26px
+	line-height: (@line*1.5) / 26 * 1em; // 36 px
+}
+
+.huge {
+	font-size: 42 / @em; // 42px
+	line-height: (@line*2) / 42 * 1em; // 48 px
+}
+
+.massive {
+	font-size: 68 / @em; // 68px
+	line-height: (@line*3) / 68 * 1em; // 72 px
+}
+
+.gigantic {
+	font-size: 110 / @em; // 110px
+	line-height: (@line*5) / 110 * 1em; // 120 px
+}
+
+/*
+*
+*	Typography
+*
+*/
+
+body, input, textarea, button, select {
+	font-family: ff-dagny-web-pro, sans-serif;
+}
+
+pre, code {
+	font-family: Menlo, Monaco, monospace;
+}
+
+article p, #content figure, #content header p {
+	margin-bottom: 24/@em;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+}
+
+	article p:last-child {
+		margin-bottom: 0;
+	}
+	
+	#content header p {
+		padding-bottom: 23/@em;
+		border-bottom: 1/@em dotted @body;
+		margin: 0;
+	}
+
+h2 {
+	margin-bottom: 12 / 26*1em;
+}
+
+h3 {
+	margin: 48/@em 0 24/@em;
+}
+
+	#download h3, #guide h3 {
+		margin: 24/@em 0 0;
+	}
+	
+	#colophon h3 {
+		border-bottom: 1/@em dotted @aside;
+		margin: 0 0 11/@em;
+	}
+
+
+/*
+*
+*	Colours
+*
+*/
+
+@background: 	rgb(255,254,250);
+
+@body: 			rgb(61,60,56);
+@emphasis:		rgb(23,20,9);
+@aside:			rgb(158,153,134);
+
+@link:			rgb(255,195,0);
+@gold: 			rgb(255,195,0);
+
+h1, h2, h3, strong {
+	color: @emphasis;
+}
+
+#colophon {
+	color: @aside;
+}
+
+	#follow p, #colophon h3 {
+		color: @background;
+	}
+
+a {
+	text-decoration: none;
+	color: @emphasis;
+	border-bottom: 2/@em solid @gold;
+}
+
+	#colophon a {
+		color: @gold;
+		border-bottom-color: transparent;
+	}
+
+a:hover {
+	border-bottom-color: @emphasis;
+}
+
+	#colophon a:hover {
+		border-bottom-color: @gold;
+	}
+
+a:active {
+	border-bottom-color: @gold;
+	color: @gold;
+}
+
+	#colophon a:active {
+		border-bottom-color: @background;
+		color: @background;
+	}
+
+::selection 	 	{background: @gold;}
+::-moz-selection 	{background: @gold;}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: @gold;}
+
+
+/*
+*
+*  Four-column grid active
+*  ----------------------------------------
+*  Margin   | #  1   2   3   4   |   Margin
+*  5.55555% | %  25  50  75  100 | 5.55555%
+*
+*/
+
+body {
+	background: @background;
+	color: @body;
+}
+
+#masthead, #content, .inner {
+	margin: 0 @column;
+}
+
+.wrapper {
+	position: relative;
+}
+
+#masthead {
+	clear: both;
+	padding: 36/@em 0 24/@em;
+}
+
+#guides {
+	height: (120)/@em;
+	position: relative;
+	background: @emphasis;
+}
+
+	.ggs-site-guide {
+		height: 100%;
+		position:absolute;
+		top:0;
+		z-index:9000;
+		margin-left:-0.75em;
+		border:solid @gold;
+		background: @gold;
+		border-width:0 0.75em;
+		-webkit-transition: all 0.618s ease-out; 
+		-moz-transition: all 0.618s ease-out; 
+		-ms-transition: all 0.618s ease-out; 
+		transition: all 0.618s ease-out;
+	}
+	
+	.ggs-site-guide div{
+		background: @emphasis;
+		width:2px;
+		height:100%;
+		position:absolute;
+		left:-1px;top:0;
+	}
+
+	.ggs-site-0{left:0;}
+	.ggs-site-1{left:11.11111111111111%;}
+	.ggs-site-2{left:16.666666666666664%;}
+	.ggs-site-3{left:22.22222222222222%;}
+	.ggs-site-4{left:27.77777777777778%;}
+	.ggs-site-5{left:33.33333333333333%;}
+	.ggs-site-6{left:38.888888888888886%;}
+	.ggs-site-7{left:44.44444444444444%;}
+	.ggs-site-8{left:50%;}
+	.ggs-site-9{left:55.55555555555556%;}
+	.ggs-site-10{left:61.11111111111111%;}
+	.ggs-site-11{left:66.66666666666666%;}
+	.ggs-site-12{left:72.22222222222221%;}
+	.ggs-site-13{left:77.77777777777777%;}
+	.ggs-site-14{left:83.33333333333333%;}
+	.ggs-site-15{left:88.88888888888889%;}
+	.ggs-site-16{right:0;}
+	
+	.ggs-site-0,.ggs-site-16{width:5.555555555555555%;padding-right:0.75em;border:0;margin:0;}
+	.ggs-site-0 div{left:auto;right:0.75em;}
+	.ggs-site-16 div{left:0.75em;}
+	
+	@media screen and (max-width: 719px){
+		.ggs-site-2,.ggs-site-6,.ggs-site-10,.ggs-site-14{
+			-webkit-transform: scale(0, 1); 
+			-moz-transform: scale(0, 1); 
+			-ms-transform: scale(0, 1); 
+			transform: scale(0, 1);
+		}
+	}
+	@media screen and (max-width: 1871px){
+		.ggs-site-1,.ggs-site-3,.ggs-site-5,.ggs-site-7,.ggs-site-9,.ggs-site-11,.ggs-site-13,.ggs-site-15{
+			-webkit-transform: scale(0, 1); 
+			-moz-transform: scale(0, 1); 
+			-ms-transform: scale(0, 1); 
+			transform: scale(0, 1);
+		}
+	}
+
+#content {
+	margin-bottom: 48/@em;
+}
+
+	#content header {
+		padding-top: 48/@em;
+	}
+
+#features figure {
+	width: 100%;
+	height: 192/@em;
+}
+
+	.canvas {
+		background: @emphasis;
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.gutter, .margin {
+		height: 100%;
+		width: 24/@em;
+		background: @gold;
+		position: absolute;
+		left: 25%; top: 0;
+		margin-left: 12/@em*-1;
+	}
+	
+	.gutter2 {
+		left: 50%;
+	}
+	
+	.gutter3 {
+		left: 75%;
+	}
+	
+		.gutter div {
+			height: 100%;
+			position: absolute;
+			left: 50%; top: 0;
+			margin-left: 1/@em*-1;
+			width: 2/@em;
+			background: @emphasis;
+		}
+	
+	.margin {
+		left: 0;
+		margin: 0;
+		width: 12/@em;
+	}
+	
+		.right {
+			left: auto; right: 0;
+		}
+	
+	.line {
+		height: 23/@em;
+		border-bottom: 1/@em dotted @gold;
+	}
+	
+	.text {
+		position: absolute; 
+		left: 12/@em; top: 24/@em;
+		color: @gold;
+		white-space: pre;
+	}
+	
+		.twoLines {
+			font-size: 42/@em;
+			line-height: 48/42*1em;
+			left: 12/42*1em; top: 48/42*1em;
+		}
+		
+		.threeLines {
+			font-size: 68/@em;
+			line-height: 72/68*1em;
+			left: 12/68*1em; top: 96/68*1em;
+		}
+		
+		.fourLines {
+			font-size: 110/@em;
+			line-height: 120/110*1em;
+			left: 12/110*1em; top: 168/110*1em;
+		}
+		
+		.fiveLines {
+			font-size: 178/@em;
+			line-height: 168/178*1em;
+			left: 12/178*1em; top: 288/178*1em;
+		}
+		
+	.switch {
+		position: absolute;
+		right: 24/@em; top: 24/@em;
+		width: 24/@em;
+	}
+	
+		.switchBar {
+			height: 4/@em;
+			margin-bottom: 4/@em;
+			background: @gold;
+		}
+	
+	#folding .gutter1, #folding .gutter3 {
+		background: none;
+		border: dashed @gold;
+		border-width: 0 1/@em;
+		width: 22/@em;
+	}
+		
+	#gutters .canvas {
+		background: @emphasis;
+	}
+	
+		#gutters .gutter, #gutters .margin {
+			background: @gold;
+		}
+		
+	#baseline .canvas {
+		background: @emphasis;
+	}
+
+#guide {
+	clear: both;
+}
+
+#colophon {
+	clear: both;
+	padding: 24/@em 0 0;
+	background: @emphasis;
+}
+
+	#follow {
+		margin-bottom: 24/@em;
+	}
+	
+	#promoGroup .wrapper {
+		margin-bottom: 24/@em;
+	}
+		
+		#promoGroup p {
+			padding-left: 84/@em;
+		}
+	
+		#colophon img {
+			width: 72/@em;
+			height: 72/@em;
+			float: left;
+			.border-radius(3/@em);
+			overflow: hidden;
+		}
+
+	
+	#copyright {
+		padding-bottom: 36/@em;
+	}
+
+
+/*
+*
+*  Fixes for IE6-8
+*  http://jonikorpi.com/leaving-old-IE-behind/
+*
+*/
+
+.ie body {
+	width: 640px;
+	margin: 0 auto;
+	border: solid @body;
+	border-width: 0 1/@em;
+	font-size: (@font-size + 1) / @em;
+}
+	
+
+/*
+*
+*  Zoom baseline grid to 17/16 = 1.0625
+*
+*/
+
+@media screen and (min-width: 40em) {
+	
+	body {
+		font-size: (@font-size + 1) / @em;
+	}
+	
+	#guides {
+		height: (192)/@em;
+	}
+	
+		#colophon:after {
+			content: " ";
+			display: block;
+			height: 0;
+			visibility: hidden;
+			clear: both;
+		}
+		
+		#promoGroup {
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+				 -o-box-sizing: border-box;
+					box-sizing: border-box;
+		}
+	
+		#promoGroup, #follow, #copyright {
+			width: 50%;
+			float: left;
+		}
+		
+			#promoGroup {
+				float: right;
+			}
+		
+		#copyright p {
+			.normal();
+		}
+		
+		#promoGroup #promo, #copyright {
+			margin-bottom: 48/@em;
+		}
+	
+}
+
+/*
+*
+*  Eight-column grid active
+*  ----------------------------------------------------------------------
+*  Margin   | #  1     2     3     4     5     6     7     8   |   Margin
+*  5.55555% | %  12.5  25.0  37.5  50.0  62.5  75.0  87.5  100 | 5.55555%
+*	
+*
+*/
+
+@media screen and (min-width: 46.5em) {
+	
+	body {
+		font-size: (@font-size) / @em;
+	}
+	
+	#masthead .wrapper, #content .wrapper {
+		margin: 0 12.5%;
+	}
+	
+	#guides {
+		height: (432)/@em;
+	}
+	
+	#masthead {
+		padding: 48/@em 0 36/@em;
+	}
+	
+		h1 {
+			.huge();
+		}
+	
+	#masthead p, #follow p {
+		.large();
+	}
+	
+	#download h3 {
+		float: left;
+		margin: 0;
+		clear: left;
+		width: 84/@em;
+	}
+	
+	#download div p {
+		padding-left: 96/@em;
+		margin-top: 24/@em;
+	}
+	
+}
+
+/*
+*
+*  Zoom baseline grid to 17/16 = 1.0625
+*
+*/
+
+@media screen and (min-width: 55.5em) {
+	
+	body {
+		font-size: (@font-size + 1) / @em;
+	}
+}
+
+
+/*
+*
+*  Reset baseline grid to 16/16 = 1.0
+*
+*/
+
+@media screen and (min-width: 61.5em) {
+	
+	body {
+		font-size: (@font-size) / @em;
+	}
+	
+	#masthead .wrapper, #content .wrapper {
+		margin: 0;
+	}
+	
+	#guides {
+		height: (264)/@em;
+	}
+	
+	#content {
+		float: left;
+		margin-bottom: 72/@em;
+	}
+	
+		#content header {
+			padding-top: 72/@em;
+		}
+		
+		h2 {
+			.huge();
+			margin-bottom: 12 / 42*1em;
+		}
+		
+		#content header p {
+			.large();
+			padding-bottom: 23/26*1em;
+			border-bottom: 1/26*1em dotted @body;
+		}
+		
+	#features section.wrapper {
+		width: 50%;
+	}
+		
+		#features section.wrapper:nth-of-type(2n) {
+			margin-left: 50%;
+		}
+		
+		#features figure {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0; right: -100%;
+		}
+		
+			#features section.wrapper:nth-of-type(2n) figure {
+				right: auto; left: -100%;
+			}
+		
+			.canvas {
+				margin: 0 12/@em;
+			}
+	
+	#download div.wrapper {
+		float: left;
+		width: 25%;
+	}
+	
+		#download h3 {
+			float: none;
+			clear: none;
+			width: auto;
+			margin: 24/@em 0 24/@em;
+		}
+	
+		#download div p {
+			padding: 0;
+		}
+		
+	#guide {
+		float: left;
+	}
+		
+		#guide div.wrapper {
+			width: 50%;
+			float: left;
+		}
+		
+	#colophon {
+		padding-top: 36/@em;
+	}
+	
+		#promoGroup #promo, #copyright {
+			margin-bottom: 60/@em;
+		}
+
+}
+
+
+/*
+*
+*  Zoom baseline grid to 17/16 = 1.0625
+*
+*/
+
+@media screen and (min-width: 75em) {
+	
+	body {
+		font-size: (@font-size + 1) / @em;
+	}
+	
+}
+
+
+/*
+*
+*  Reset baseline grid to 16/16 = 1.0
+*
+*/
+
+@media screen and (min-width: 87em) {
+	
+	body {
+		font-size: (@font-size) / @em;
+	}
+	
+	#masthead, #content, .inner {
+		margin-left: @column*3;
+		margin-right: @column*3;
+	}
+	
+	#download div.wrapper {
+		width: 16.6666667%;
+	}
+	
+		#download div p {
+			.small();
+		}
+	
+}
+
+/*
+*
+*  Zoom baseline grid to 17/16 = 1.0625
+*
+*/
+
+@media screen and (min-width: 105em) {
+	
+	body {
+		font-size: (@font-size + 1) / @em;
+	}
+	
+}
+
+
+/*
+*
+*  Sixteen-column grid active
+*  ----------------------------------------------------------------------------------------------------------------------
+*  Margin   | #  1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16  |   Margin
+*  5.55555% | %  6.25  12.5  18.75 25.0  31.25 37.5  43.75 50.0  56.25 62.5  68.75 75.0  81.25 87.5  93.75 100 | 5.55555%
+*	
+*
+*/
+
+@media screen and (min-width: 117em) {
+	
+	#masthead, #content, #colophon .inner {
+		margin-left: @column*4;
+		margin-right: @column*4;
+	}
+	
+	
+	#masthead {
+		padding: 72/@em 0 48/@em;
+	}
+	
+		h1 {
+			.massive();
+		}
+		
+		#masthead p {
+			.huge();
+		}
+		
+	#download div.wrapper {
+		width: 20%;
+	}
+	
+	#guides {
+		height: (384)/@em;
+	}
+	
+	#features header {
+		padding-top: 48/@em;
+	}
+	
+}
+
+@media screen and (min-width: 130em) {
+
+	#masthead, #content, #colophon .inner {
+		margin-left: @column*5;
+		margin-right: @column*5;
+	}
+	
+	#download div.wrapper {
+		width: 25%;
+	}
+		#download div p {
+			.normal();
+		}
+	
+}
+
+
+/*
+*
+*  Zoom baseline grid to 18/16 = 1.125
+*
+*/
+@media screen and (min-width: 2496px) {
+	
+	body {
+		font-size: (@font-size + 2) / @em;
+	}
+	
+}
+
+@media screen and (min-width: 3216px) {
+	
+	#masthead, #content, #colophon .inner {
+		margin-left: @column*6;
+		margin-right: @column*6;
+	}
+	
+	#download div.wrapper {
+		width: 16.6666667%;
+	}
+		#download div p {
+			.small();
+		}
+	
+}
+
+/*
+*
+*  Zoom baseline grid to 19/16 = 1.1875
+*
+*/
+
+@media screen and (min-width: 4104px) {
+	
+	body {
+		font-size: (@font-size + 3) / @em;
+	}
+	
+}
+
+@media screen and (min-width: 4440px) {
+	
+	body {
+		position: relative;
+		max-width: 5120px;
+	}
+	
+	#masthead, #content, #colophon .inner {
+		margin-left: @column*7;
+		margin-right: @column*7;
+	}
+	
+	#download div.wrapper {
+		width: 25%;
+	}
+		#download div p {
+			.normal();
+		}
+	
+}

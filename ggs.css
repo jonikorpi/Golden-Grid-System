@@ -191,37 +191,46 @@ img {
 *
 */
 body {
+  /* 16px / 24px */
+
   font-size: 1em;
   line-height: 1.5em;
-  font-family: sans-serif;
 }
-.small,
-small,
-code,
-#copyright p {
+.small {
+  /* 13px / 18px */
+
   font-size: 0.8125em;
   line-height: 1.3846153846153846em;
 }
-.normal, h4, h3 {
+.normal, h3 {
+  /* 16px / 24px */
+
   font-size: 1em;
   line-height: 1.5em;
+  /* 24 */
+
 }
-.large,
-h2,
-h1,
-.icon {
+.large, h2, h1 {
+  /* 26 / 36px */
+
   font-size: 1.625em;
   line-height: 1.3846153846153846em;
 }
 .huge {
+  /* 42px / 48px */
+
   font-size: 2.625em;
   line-height: 1.1428571428571428em;
 }
 .massive {
+  /* 68px / 72px */
+
   font-size: 4.25em;
   line-height: 1.0588235294117647em;
 }
 .gigantic {
+  /* 110px / 120px */
+
   font-size: 6.875em;
   line-height: 1.0909090909090908em;
 }
@@ -233,11 +242,22 @@ h1,
 *  5.55555% | %  25  50  75  100 | 5.55555%
 *
 */
+header, #twoway {
+  margin: 0 5.555555555555555%;
+  font-family: sans-serif;
+}
+h1, h2 {
+  margin: 0.9230769230769231em 0 1.3846153846153846em;
+}
+h2 {
+  font-weight: normal;
+}
+h3 {
+  margin: 1.5em 0 1.5em;
+}
 /*
-*
 *  Simple elastic gutters
 *  Note: box-sizing will not work in IE6-8
-*
 */
 .wrapper {
   padding: 0 0.75em;
@@ -253,15 +273,30 @@ h1,
 *
 */
 .ie body {
-  width: 640px;
+  width: 40em;
   margin: 0 auto;
   font-size: 1.0625em;
 }
-@media screen and (min-width: 640px) {
+.ie h1 {
+  /* 42px / 48px */
+
+  font-size: 2.625em;
+  line-height: 1.1428571428571428em;
+  margin: 1.1428571428571428em 0 0.5714285714285714em;
+}
+/* @media screen and (min-width: 640px) */
+@media screen and (min-width: 40em) {
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
   
     font-size: 1.0625em;
+  }
+  h1 {
+    /* 42px / 48px */
+  
+    font-size: 2.625em;
+    line-height: 1.1428571428571428em;
+    margin: 1.1428571428571428em 0 0.5714285714285714em;
   }
 }
 /*
@@ -273,51 +308,58 @@ h1,
 *	
 *
 */
-@media screen and (min-width: 744px) {
+/* @media screen and (min-width: 720px) */
+@media screen and (min-width: 45em) {
   body {
     /* Reset baseline grid to 16/16 = 1 */
   
     font-size: 1em;
   }
+  #twoway .wrapper {
+    float: left;
+    width: 50%;
+  }
 }
-@media screen and (min-width: 888px) {
+/* @media screen and (min-width: 888px) */
+@media screen and (min-width: 55.5em) {
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
   
     font-size: 1.0625em;
   }
 }
-@media screen and (min-width: 984px) {
+/* @media screen and (min-width: 984px) */
+@media screen and (min-width: 61.5em) {
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
   
     font-size: 1em;
   }
+  header, #twoway {
+    margin: 0 16.666666666666664%;
+  }
 }
-/*
-*
-*  
-*
-*/
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) */
+@media screen and (min-width: 75em) {
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
   
     font-size: 1.0625em;
   }
-  #promoGroup {
-    width: 37.5%;
-    margin-right: 12.5%;
-  }
 }
-@media screen and (min-width: 1392px) {
+/* @media screen and (min-width: 1392px) */
+@media screen and (min-width: 87em) {
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
   
     font-size: 1em;
   }
+  header, #twoway {
+    margin: 0 27.77777777777778%;
+  }
 }
-@media screen and (min-width: 1680px) {
+/* @media screen and (min-width: 1680px) */
+@media screen and (min-width: 105em) {
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
   
@@ -333,32 +375,28 @@ h1,
 *	
 *
 */
-@media screen and (min-width: 1872px) {
-  
+/* @media screen and (min-width: 1872px) */
+@media screen and (min-width: 117em) {
+  header, #twoway {
+    margin: 0 5.555555555555555%;
+  }
+  header .wrapper {
+    width: 37.5%;
+    margin-left: 25%;
+  }
+  #twoway .wrapper {
+    width: 25%;
+  }
+  #twoway .wrapper:first-child {
+    margin-left: 25%;
+  }
 }
-@media screen and (min-width: 2080px) {
-  
-}
-@media screen and (min-width: 2496px) {
+/* @media screen and (min-width: 2080px) */
+@media screen and (min-width: 130em) {
   body {
     /* Zoom baseline grid to 18/16 = 1.125 */
   
     font-size: 1.125em;
-  }
-}
-@media screen and (min-width: 3216px) {
-  
-}
-@media screen and (min-width: 4104px) {
-  body {
-    /* Zoom baseline grid to 19/16 = 1.1875 */
-  
-    font-size: 1.1875em;
-  }
-}
-@media screen and (min-width: 4440px) {
-  body {
-    position: relative;
-    max-width: 5120px;
+    max-width: 2560 em;
   }
 }
