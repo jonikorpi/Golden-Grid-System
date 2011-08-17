@@ -108,10 +108,11 @@
 <p>Elastic gutters are created by positioning elements in the center of the gutter (using percentages) and giving them a padding equal to half of the gutter's width. For example: </p>
 
 <pre><code>.wrapper {
+    box-sizing: border-box; /* + vendor prefixes */
     width: 50%;
     margin-left: 25%;
     /* Assuming gutter width = 1.5em */
-    padding: 0 0.75em; 
+    padding: 0 0.75em;
 }
 </code></pre>
 				</section>
