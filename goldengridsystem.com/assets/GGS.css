@@ -319,9 +319,11 @@ a:active {
 }
 ::selection {
   background: #ffc300;
+  color: #171409;
 }
 ::-moz-selection {
   background: #ffc300;
+  color: #171409;
 }
 img::selection {
   background: transparent;

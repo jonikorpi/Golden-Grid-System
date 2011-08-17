@@ -147,7 +147,7 @@
 
 <p>If you specify all your font-sizes, line-heights, as well as vertical paddings, margins and borders in ems, they'll all scale in proportion as the font-size is changed using media queries, always keeping the baseline grid intact (save for a 1px rounding error or two), which lets the layout keep the same vertical rhythm regardless of screen size.</p>
 
-<p>GGS comes with a set of type presets and aligned to a baseline grid, which is based on a base line-height of 1.5. Feel free to replace them with your own presets, though.</p>
+<p>GGS comes with a set of type presets aligned to a baseline grid, which is based on a base line-height of 1.5. Feel free to replace them with your own presets, though.</p>
 				</section>
 				<section class="wrapper">
 					<h3>Golden Gridlet</h3>
@@ -165,6 +165,8 @@
 <p>Aligning elements in responsive layouts can be difficult with all the percentage values flying around. GGS comes with <em>Golden Gridlet</em>, a little script that adds a button into the upper right corner of the page. When clicked or tapped, it overlays the GGS grid and a baseline grid of 1.5em onto the page, making it easy to visually check that design elements align up.</p>
 
 <p>Golden Gridlet should work in most modern browsers, and since it doesn't rely on a keyboard, it can be used on touch screen devices as well. In modern browsers, the overlay appears with a pleasing CSS3 transition. Give it a try by clicking or tapping the icon in the upper right corner of this page. It's pretty fun.</p>
+
+<p>(Please note that due to rounding errors the baseline grid guides might not align up properly if the baseline grid is zoomed in or out.)</p>
 				</section>
 			</section>
 			
@@ -274,6 +276,8 @@
 		</footer>
 		
 		<script type="text/javascript">
+		var clicky_custom={};
+		clicky_custom.advanced_disable=1;
 		var clicky_site_ids = clicky_site_ids || [];
 		clicky_site_ids.push(66461630);
 		(function() {
