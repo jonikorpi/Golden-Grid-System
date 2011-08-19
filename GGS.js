@@ -1,6 +1,6 @@
 /*
 *
-*  Golden Gridlet (1.0) 	<http://???.com/>
+*  Golden Gridlet (1.0) 	<http://golden.com/>
 *  by Joni Korpi 			<http://jonikorpi.com/>
 *  licensed under MIT 		<http://opensource.org/licenses/mit-license.php>
 *	
@@ -42,30 +42,30 @@ var sixteenColBreakpoint = ((1872-1) / baseFontSize)+'em';
 
 
 function setHeights() {
-
+	if (!$('body').hasClass('ggs-hidden')) {
 /* Which one is taller, <body> or <html>? */
-	if ($('body').offset().height > $('html').offset().height) {
-		var largerHeight = $('body').offset().height;
-	}
-	else {
-		var largerHeight = $('html').offset().height;
-	}
+		if ($('body').offset().height > $('html').offset().height) {
+			var largerHeight = $('body').offset().height;
+		}
+		else {
+			var largerHeight = $('html').offset().height;
+		}
 
 /* Give guides the new height */
-	$('.ggs-guide').each(function() {
-		$(this).css('height', largerHeight);
-	});
+		$('.ggs-guide').each(function() {
+			$(this).css('height', largerHeight);
+		});
 
 /* Calculate the amount of lines needed and append them */
-	var lines = Math.floor(largerHeight/24);
-	$('#ggs-baseline-container').empty();
-	for (i=0; i<=lines; i++) {
-		$('#ggs-baseline-container').append('<div class="ggs-line"></div>');
-	}
+		var lines = Math.floor(largerHeight/24);
+		$('#ggs-baseline-container').empty();
+		for (i=0; i<=lines; i++) {
+			$('#ggs-baseline-container').append('<div class="ggs-line"></div>');
+		}
 
 /* Set the baseline container to the same height as the guides, so there's no overflow */
-	$('#ggs-baseline-container').css('height', largerHeight);
-	
+		$('#ggs-baseline-container').css('height', largerHeight);
+	}
 }
 
 $.domReady(function () {
@@ -73,54 +73,61 @@ $.domReady(function () {
 /* 	Add control classes and switch element */
 	$('body').addClass('ggs-hidden ggs-animated').append('<div id="ggs-switch"><div class="ggs-switchBar"></div><div class="ggs-switchBar"></div><div class="ggs-switchBar"></div></div>');
 
-/* 	Create CSS */
-	var styles = '\
-		html{height:100%;position:relative;}\
-		#ggs-switch{position:fixed;top:0;right:0;z-index:9500; cursor:pointer; width: 24px; padding: 18px 18px 14px; opacity:'+switchOpacity+'; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: all 0.145s ease-out; -moz-transition: all 0.145s ease-out; -ms-transition: all 0.145s ease-out; transition: all 0.145s ease-out;}\
-		.ggs-switchBar {background: '+switchColor+'; height: 4px; margin-bottom: 4px;}\
-		.ggs-animated #ggs-switch {-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg);}\
-		.ggs-guide{position:absolute;top:0;z-index:9000;height:100%;margin-left:-0.75em;border:solid '+guideColor+';border-width:0 0.75em;background:'+guideColor+';opacity:'+guideOpacity+'; -webkit-transition: all 0.235s ease-out; -moz-transition: all 0.235s ease-out; -ms-transition: all 0.235s ease-out; transition: all 0.235s ease-out;}\
-		.ggs-animated .ggs-guide {-webkit-transform: scale(0, 1); -moz-transform: scale(0, 1); -ms-transform: scale(0, 1); transform: scale(0, 1); opacity: 0;}\
-		.ggs-animated #ggs-baseline-container {opacity: 0;}\
-		.ggs-hidden .ggs-guide, .ggs-hidden #ggs-baseline-container {display: none;}\
-		.ggs-0{left:0;}\
-		.ggs-1{left:11.11111111111111%;}\
-		.ggs-2{left:16.666666666666664%;}\
-		.ggs-3{left:22.22222222222222%;}\
-		.ggs-4{left:27.77777777777778%;}\
-		.ggs-5{left:33.33333333333333%;}\
-		.ggs-6{left:38.888888888888886%;}\
-		.ggs-7{left:44.44444444444444%;}\
-		.ggs-8{left:50%;}\
-		.ggs-9{left:55.55555555555556%;}\
-		.ggs-10{left:61.11111111111111%;}\
-		.ggs-11{left:66.66666666666666%;}\
-		.ggs-12{left:72.22222222222221%;}\
-		.ggs-13{left:77.77777777777777%;}\
-		.ggs-14{left:83.33333333333333%;}\
-		.ggs-15{left:88.88888888888889%;}\
-		.ggs-16{right:0;}\
-		.ggs-0,.ggs-16{width:5.555555555555555%;padding-right:0.75em;border:0;margin:0;}\
-		.ggs-guide div{background:'+guideInnerColor+';width:2px;height:100%;position:absolute;left:-1px;top:0;}\
-		.ggs-0 div{left:auto;right:0.75em;}\
-		.ggs-16 div{left:0.75em;}\
-		#ggs-baseline-container {opacity: '+guideOpacity+'; position: absolute; left:0; top:0; z-index: 8000; width: 100%; height: 100%; -webkit-transition: opacity 0.235s ease-out; -moz-transition: opacity 0.235s ease-out; -ms-transition: opacity 0.235s ease-out; transition: opacity 0.235s ease-out; overflow-y: hidden;}\
-		.ggs-line {border-top: 1px dotted '+guideColor+'; height: '+baselineGridHeight+'; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box;}\
-		@media screen and (max-width: '+(eightColBreakpoint)+'){.ggs-2,.ggs-6,.ggs-10,.ggs-14{display:none;}}\
-		@media screen and (max-width: '+(sixteenColBreakpoint)+'){.ggs-1,.ggs-3,.ggs-5,.ggs-7,.ggs-9,.ggs-11,.ggs-13,.ggs-15{display:none;}}\
-	';
-	
+/*  Create CSS */
+    var styles = '\
+        html{height:100%;position:relative;}\
+        #ggs-switch{position:fixed;top:0;right:0;z-index:9500; cursor:pointer; width: 24px; padding: 18px 18px 14px; opacity:'+switchOpacity+'; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: all 0.145s ease-out; -moz-transition: all 0.145s ease-out; -ms-transition: all 0.145s ease-out; transition: all 0.145s ease-out;}\
+        .ggs-switchBar {background: '+switchColor+'; height: 4px; margin-bottom: 4px;}\
+        .ggs-animated #ggs-switch {-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg);}\
+        .ggs-guide{position:absolute;top:0;z-index:9000;height:100%;margin-left:-0.75em;border:solid '+guideColor+';border-width:0 0.75em;background:'+guideColor+';opacity:'+guideOpacity+'; -webkit-transition: all 0.235s ease-out; -moz-transition: all 0.235s ease-out; -ms-transition: all 0.235s ease-out; transition: all 0.235s ease-out;}\
+        .ggs-animated .ggs-guide {-webkit-transform: scale(0, 1); -moz-transform: scale(0, 1); -ms-transform: scale(0, 1); transform: scale(0, 1); opacity: 0;}\
+        .ggs-animated #ggs-baseline-container {opacity: 0;}\
+        .ggs-hidden .ggs-guide, .ggs-hidden #ggs-baseline-container {display: none;}\
+        .ggs-0{left:0;}\
+        .ggs-1{left:11.11111111111111%;}\
+        .ggs-2{left:16.666666666666664%;}\
+        .ggs-3{left:22.22222222222222%;}\
+        .ggs-4{left:27.77777777777778%;}\
+        .ggs-5{left:33.33333333333333%;}\
+        .ggs-6{left:38.888888888888886%;}\
+        .ggs-7{left:44.44444444444444%;}\
+        .ggs-8{left:50%;}\
+        .ggs-9{left:55.55555555555556%;}\
+        .ggs-10{left:61.11111111111111%;}\
+        .ggs-11{left:66.66666666666666%;}\
+        .ggs-12{left:72.22222222222221%;}\
+        .ggs-13{left:77.77777777777777%;}\
+        .ggs-14{left:83.33333333333333%;}\
+        .ggs-15{left:88.88888888888889%;}\
+        .ggs-16{right:0;}\
+        .ggs-0,.ggs-16{width:5.555555555555555%;padding-right:0.75em;border:0;margin:0;}\
+        .ggs-guide div{background:'+guideInnerColor+';width:2px;height:100%;position:absolute;left:-1px;top:0;}\
+        .ggs-0 div{left:auto;right:0.75em;}\
+        .ggs-16 div{left:0.75em;}\
+        #ggs-baseline-container {opacity: '+guideOpacity+'; position: absolute; left:0; top:0; z-index: 8000; width: 100%; height: 100%; -webkit-transition: opacity 0.235s ease-out; -moz-transition: opacity 0.235s ease-out; -ms-transition: opacity 0.235s ease-out; transition: opacity 0.235s ease-out; overflow-y: hidden;}\
+        .ggs-line {border-top: 1px dotted '+guideColor+'; height: '+baselineGridHeight+'; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box;}\
+        @media screen and (max-width: '+(eightColBreakpoint)+'){.ggs-2,.ggs-6,.ggs-10,.ggs-14{display:none;}}\
+        @media screen and (max-width: '+(sixteenColBreakpoint)+'){.ggs-1,.ggs-3,.ggs-5,.ggs-7,.ggs-9,.ggs-11,.ggs-13,.ggs-15{display:none;}}\
+    ';	
+
 /* 	Create guides */
 	for (i=0; i<=16; i++) {
 		$('body').append($('<div class="ggs-guide ggs-'+i+'"><div></div></div>'));
 	};
 	$('body').append($('<div id="ggs-baseline-container"></div>'));
 	
-/* 	Set initial guide heights */
-	setHeights();
-	
 /* 	Append CSS */
-	$('<style></style>').html(styles).appendTo('head');
+	(function(d,u) {
+		if(d.createStyleSheet) {
+			d.createStyleSheet( u );
+		} 
+		else {
+			var css=d.createElement('style');
+			css.setAttribute("type","text/css");
+			css.appendChild(document.createTextNode(u));
+			d.getElementsByTagName("head")[0].appendChild(css);
+		}
+	}(document, styles))
 	
 /* 	Resize guides when window size changes */
 	$(window).on('resize', setHeights);
@@ -129,6 +136,7 @@ $.domReady(function () {
 	$('#ggs-switch').click(function(){
 		if ($('body').hasClass('ggs-hidden')) {
 			$('body').removeClass('ggs-hidden');
+			setHeights();
 			setTimeout(
 				function () {
 					$('body').removeClass('ggs-animated');
