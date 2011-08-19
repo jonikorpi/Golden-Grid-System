@@ -1,6 +1,6 @@
 /*
 *
-*  Golden Gridlet (1.0) 	<http://goldengridsystem.com/>
+*  Golden Gridlet (1.01) 	<http://goldengridsystem.com/>
 *  by Joni Korpi 			<http://jonikorpi.com/>
 *  licensed under MIT 		<http://opensource.org/licenses/mit-license.php>
 *	
