@@ -9,6 +9,7 @@ See http://goldengridsystem.com/ for more details.
 - **GGS.html** contains the required markup (namely the meta viewport tag) and a simple demo.
 - **GGS.css** contains the meat of GGS, with some demo code filled in. Details about its contents are scattered in CSS comments throughout the file.
 - **GGS.less** is the [LESS](http://lesscss.org/) source of GGS.css. It offers some customization for power users, and works as a nice starting point for LESS users.
+- **GGS.scss** is the same as GGS.less, but written in SCSS instead.
 - **GGS.js** contains Golden Gridlet, a script that overlays the GGS grid and a baseline grid of 1.5em onto the page. Can be customized around the top of the file. Powered by the [Ender library](http://ender.no.de/).
 - **goldengridsystem.com/** contains the source of the GGS site.
 
