@@ -216,8 +216,9 @@ pre, code {
 }
 article p, #content figure, #content header p {
   margin-bottom: 1.5em;
-  hyphens: auto;
   -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 article p:last-child {
   margin-bottom: 0;
