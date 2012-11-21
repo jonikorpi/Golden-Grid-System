@@ -136,37 +136,44 @@ body {
 	line-height: #{$line / $em}em;
 }
 
-.small {
+@mixin small {
 	/* 13px / 18px */
 	font-size: #{($font-size*0.8125) / $em}em;
 	line-height: ($line*0.75) / ($font-size*0.8125) * 1em;
 }
-
-.normal, h3 {
+@mixin normal {
 	/* 16px / 24px */
 	font-size: #{$font-size / $em}em;
 	line-height: #{$line / $em}em; /* 24 */
 }
 
-.large, h2, h1 {
+h3 {
+	@include normal;
+}
+
+@mixin large {
 	/* 26 / 36px */
 	font-size: #{26 / $em}em;
 	line-height: ($line*1.5) / 26 * 1em;
 }
 
-.huge {
+h2, h1 {
+	@include large;
+}
+
+@mixin huge {
 	/* 42px / 48px */
 	font-size: #{42 / $em}em;
 	line-height: ($line*2) / 42 * 1em;
 }
 
-.massive {
+@mixin massive {
 	/* 68px / 72px */
 	font-size: #{68 / $em}em;
 	line-height: ($line*3) / 68 * 1em;
 }
 
-.gigantic {
+@mixin gigantic {
 	/* 110px / 120px */
 	font-size: #{110 / $em}em;
 	line-height: ($line*5) / 110 * 1em;
@@ -226,7 +233,7 @@ h3 {
 }
 
 .ie h1 {
-	@extend .huge;
+	@include huge;
 	margin: (48/42*1em) 0 (24/42*1em);
 }
 
@@ -239,7 +246,7 @@ h3 {
 	}
 
 	h1 {
-		@extend .huge;
+		@include huge;
 		margin: (48/42*1em) 0 (24/42*1em);
 	}
 
