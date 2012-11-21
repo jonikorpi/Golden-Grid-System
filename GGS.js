@@ -16,8 +16,11 @@ var switchOpacity = '0.618';
 var baseFontSize = 16;
 var baselineGridHeight = (24 / baseFontSize)+'em';
 
-var eightColBreakpoint = ((720-1) / baseFontSize)+'em';
-var sixteenColBreakpoint = ((1872-1) / baseFontSize)+'em';
+var eightColWidth = 720;
+var sixteenColWidth = 1872;
+
+var eightColBreakpoint = ((eightColWidth-1) / baseFontSize)+'em';
+var sixteenColBreakpoint = ((sixteenColWidth-1) / baseFontSize)+'em';
 
 /*
 *  Note that the script might not work as expected if 
@@ -69,21 +72,32 @@ function setHeights() {
 	}
 }
 
+/* Set the width info */
+function setWidth() {
+	if (!ender('body').hasClass('ggs-hidden')) {
+	   var bodyWidth = ender('body').offset().width;
+	   var numColumns = bodyWidth >= sixteenColWidth ? 16 : (bodyWidth >= eightColWidth ? 8 : 4);
+	   ender('#ggs-width').html(bodyWidth +' px<br/>'+numColumns+' cols');
+	}
+}
+
 ender.domReady(function () {
 	
 /* 	Add control classes and switch element */
-	ender('body').addClass('ggs-hidden ggs-animated').append('<div id="ggs-switch"><div class="ggs-switchBar"></div><div class="ggs-switchBar"></div><div class="ggs-switchBar"></div></div>');
+	ender('body').addClass('ggs-hidden ggs-animated').append('<div id="ggs-switch"><div class="ggs-switchBar"></div><div class="ggs-switchBar"></div><div class="ggs-switchBar"></div></div><div id="ggs-width"></div>');
 
 /*  Create CSS */
     var styles = '\
         html{height:100%;position:relative;}\
-        #ggs-switch{position:fixed;top:0;right:0;z-index:9500; cursor:pointer; width: 24px; padding: 18px 18px 14px; opacity:'+switchOpacity+'; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: all 0.145s ease-out; -moz-transition: all 0.145s ease-out; -ms-transition: all 0.145s ease-out; transition: all 0.145s ease-out;}\
+        #ggs-switch, #ggs-width{position:fixed;right:0;z-index:9500; opacity:'+switchOpacity+'; -webkit-transition: all 0.145s ease-out; -moz-transition: all 0.145s ease-out; -ms-transition: all 0.145s ease-out; transition: all 0.145s ease-out;}\
+        #ggs-switch{top:0; cursor:pointer; width: 24px; padding: 18px 18px 14px; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg);}\
+        #ggs-width{top:60px; width:56px; text-align: center; font-size:10px; font-family:Helvetica,Arial,sans-serif; line-height: 12px;}\
         .ggs-switchBar {background: '+switchColor+'; height: 4px; margin-bottom: 4px;}\
         .ggs-animated #ggs-switch {-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg);}\
         .ggs-guide{position:absolute;top:0;z-index:9000;height:100%;margin-left:-0.75em;border:solid '+guideColor+';border-width:0 0.75em;background:'+guideColor+';opacity:'+guideOpacity+'; -webkit-transition: all 0.235s ease-out; -moz-transition: all 0.235s ease-out; -ms-transition: all 0.235s ease-out; transition: all 0.235s ease-out;}\
         .ggs-animated .ggs-guide {-webkit-transform: scale(0, 1); -moz-transform: scale(0, 1); -ms-transform: scale(0, 1); transform: scale(0, 1); opacity: 0;}\
         .ggs-animated #ggs-baseline-container {opacity: 0;}\
-        .ggs-hidden .ggs-guide, .ggs-hidden #ggs-baseline-container {display: none;}\
+        .ggs-hidden .ggs-guide, .ggs-hidden #ggs-baseline-container, .ggs-hidden #ggs-width {display: none;}\
         .ggs-0{left:0;}\
         .ggs-1{left:11.11111111111111%;}\
         .ggs-2{left:16.666666666666664%;}\
@@ -130,14 +144,16 @@ ender.domReady(function () {
 		}
 	}(document, styles))
 	
-/* 	Resize guides when window size changes */
+/* 	Resize guides and change width when window size changes */
 	ender(window).on('resize', setHeights);
+	ender(window).on('resize', setWidth);
 	
 /* 	Add listeners for switch element */
 	ender('#ggs-switch').click(function(){
 		if (ender('body').hasClass('ggs-hidden')) {
 			ender('body').removeClass('ggs-hidden');
 			setHeights();
+			setWidth();
 			setTimeout(
 				function () {
 					ender('body').removeClass('ggs-animated');
