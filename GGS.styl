@@ -16,6 +16,15 @@ $column    = 100% / 18
 $font-size = 16
 $em        = $font-size * 1
 
+$zoom-baseline-grid()
+  body
+    /* Zoom baseline grid to 17/16 = 1.0625 */
+    font-size: 1.0625em
+
+$reset-baseline-grid()
+  body
+    /* Reset baseline grid to 16/16 = 1.0 */
+    font-size: 1em
 
 /*
 *
@@ -262,9 +271,7 @@ h3
 /* @media screen and (min-width: 640px) */
 @media screen and (min-width: 40em) 
 
-  body 
-    /* Zoom baseline grid to 17/16 = 1.0625 */
-    font-size (($font-size + 1) / $em) * 1em
+  $zoom-baseline-grid()
   
   
   h1 
@@ -288,9 +295,7 @@ h3
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) 
 
-  body 
-    /* Reset baseline grid to 16/16 = 1 */
-    font-size (($font-size) / $em) * 1em
+  $reset-baseline-grid()
   
   
   #twoway .wrapper 
@@ -304,9 +309,7 @@ h3
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) 
 
-  body 
-    /* Zoom baseline grid to 17/16 = 1.0625 */
-    font-size (($font-size + 1) / $em) * 1em
+  $zoom-baseline-grid()
   
 
 
@@ -314,9 +317,7 @@ h3
 /* @media screen and (min-width: 984px) */
 @media screen and (min-width: 61.5em) 
 
-  body 
-    /* Reset baseline grid to 16/16 = 1.0 */
-    font-size (($font-size) / $em) * 1em
+  $reset-baseline-grid()
   
   
   header, #twoway 
@@ -329,9 +330,7 @@ h3
 /* @media screen and (min-width: 1200px) */
 @media screen and (min-width: 75em) 
 
-  body 
-    /* Zoom baseline grid to 17/16 = 1.0625 */
-    font-size (($font-size + 1) / $em) * 1em
+  $zoom-baseline-grid()
   
 
 
@@ -340,9 +339,7 @@ h3
 /* @media screen and (min-width: 1392px) */
 @media screen and (min-width: 87em) 
 
-  body 
-    /* Reset baseline grid to 16/16 = 1.0 */
-    font-size (($font-size) / $em) * 1em
+  $reset-baseline-grid()
   
   
   header, #twoway 
@@ -355,9 +352,7 @@ h3
 /* @media screen and (min-width: 1680px) */
 @media screen and (min-width: 105em) 
 
-  body 
-    /* Zoom baseline grid to 17/16 = 1.0625 */
-    font-size (($font-size + 1) / $em) * 1em
+  $zoom-baseline-grid()
   
 
 
@@ -401,6 +396,6 @@ h3
 
   body 
     /* Zoom baseline grid to 18/16 = 1.125 */
-    font-size (($font-size + 2) / $em) * 1em
+    font-size (($font-size + 2) / $em) * 1em  // **NOTE** This ratio is different from $zoom-baseline-grid() 
     max-width ( 2560/$em ) * 1em
   
