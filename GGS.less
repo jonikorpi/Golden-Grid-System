@@ -3,7 +3,7 @@
 *  Golden Grid System (1.01)	<http://goldengridsystem.com/>
 *  by Joni Korpi 				<http://jonikorpi.com/>
 *  licensed under MIT			<http://opensource.org/licenses/mit-license.php>
-*	
+*
 */
 
 
@@ -70,22 +70,22 @@ section {
 */
 
 html {
-	height: 100%; 
-	-webkit-text-size-adjust: 100%; 
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
 body {
-	min-height: 100%; 
+	min-height: 100%;
 	font-size: 100%;
 }
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, nav, section, audio, canvas, video {
 	display: block;
 }
 sub, sup {
-	font-size: 75%; 
-	line-height: 0; 
-	position: relative; 
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
 	vertical-align: baseline;
 }
 sup {
@@ -95,8 +95,8 @@ sub {
 	bottom: -0.25em;
 }
 pre {
-	white-space: pre; 
-	white-space: pre-wrap; 
+	white-space: pre;
+	white-space: pre-wrap;
 	word-wrap: break-word;
 }
 b, strong {
@@ -112,8 +112,8 @@ input, textarea, button, select {
 	vertical-align: baseline;
 }
 button,
-html input[type="button"], 
-input[type="reset"], 
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
     cursor: pointer;
     -webkit-appearance: button;
@@ -145,11 +145,11 @@ figure {
 	position: relative;
 }
 figure img, figure object, figure embed, figure video {
-	max-width: 100%; 
+	max-width: 100%;
 	display: block;
 }
 img {
-	border: 0; 
+	border: 0;
 	-ms-interpolation-mode: bicubic;
 }
 
@@ -163,7 +163,7 @@ img {
 
 body {
 	/* 16px / 24px */
-	font-size: @font-size / 16 * 1em; 
+	font-size: @font-size / 16 * 1em;
 	line-height: @line / @em;
 }
 
@@ -262,17 +262,17 @@ h3 {
 
 /* @media screen and (min-width: 640px) */
 @media screen and (min-width: 40em) {
-	
+
 	body {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
 		font-size: (@font-size + 1) / @em;
 	}
-	
+
 	h1 {
 		.huge();
 		margin: (48/42*1em) 0 (24/42*1em);
 	}
-	
+
 }
 
 
@@ -282,29 +282,29 @@ h3 {
 *  ----------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8   |   Margin
 *  5.55555% | %  12.5  25.0  37.5  50.0  62.5  75.0  87.5  100 | 5.55555%
-*	
+*
 *
 */
 
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
-	
+
 	body {
 		/* Reset baseline grid to 16/16 = 1 */
 		font-size: (@font-size) / @em;
 	}
-	
+
 	#twoway .wrapper {
 		float: left;
 		width: 50%;
 	}
-	
+
 }
 
 
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) {
-	
+
 	body {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
 		font-size: (@font-size + 1) / @em;
@@ -314,12 +314,12 @@ h3 {
 
 /* @media screen and (min-width: 984px) */
 @media screen and (min-width: 61.5em) {
-	
+
 	body {
 		/* Reset baseline grid to 16/16 = 1.0 */
-		font-size: (@font-size) / @em; 
+		font-size: (@font-size) / @em;
 	}
-	
+
 	header, #twoway {
 		margin: 0 @column*3;
 	}
@@ -329,38 +329,38 @@ h3 {
 
 /* @media screen and (min-width: 1200px) */
 @media screen and (min-width: 75em) {
-	
+
 	body {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
 		font-size: (@font-size + 1) / @em;
 	}
-	
+
 }
 
 
 /* @media screen and (min-width: 1392px) */
 @media screen and (min-width: 87em) {
-	
+
 	body {
 		/* Reset baseline grid to 16/16 = 1.0 */
 		font-size: (@font-size) / @em;
 	}
-	
+
 	header, #twoway {
 		margin: 0 @column*5;
 	}
-	
+
 }
 
 
 /* @media screen and (min-width: 1680px) */
 @media screen and (min-width: 105em) {
-	
+
 	body {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
 		font-size: (@font-size + 1) / @em;
 	}
-	
+
 }
 
 
@@ -370,30 +370,30 @@ h3 {
 *  ----------------------------------------------------------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16  |   Margin
 *  5.55555% | %  6.25  12.5  18.75 25.0  31.25 37.5  43.75 50.0  56.25 62.5  68.75 75.0  81.25 87.5  93.75 100 | 5.55555%
-*	
+*
 *
 */
 
 /* @media screen and (min-width: 1872px) */
 @media screen and (min-width: 117em) {
-	
+
 	header, #twoway {
 		margin: 0 @column*1;
 	}
-	
+
 	header .wrapper {
 		width: 37.5%;
 		margin-left: 25%;
 	}
-	
+
 	#twoway .wrapper {
 		width: 25%;
 	}
-	
+
 	#twoway .wrapper:first-child {
 		margin-left: 25%;
 	}
-	
+
 }
 
 
@@ -405,5 +405,5 @@ h3 {
 		font-size: (@font-size + 2) / @em;
 		max-width: 2560/@em;
 	}
-	
+
 }
