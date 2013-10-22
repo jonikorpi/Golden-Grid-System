@@ -37,43 +37,43 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote,
 *
 */
 
-html 
+html
   height 100%
   -webkit-text-size-adjust 100%
   -ms-text-size-adjust 100%
 
-body 
+body
   min-height 100%
   font-size 100%
 
 article, aside, details, figcaption, figure,
-footer, header, hgroup, nav, section, audio, canvas, video 
+footer, header, hgroup, nav, section, audio, canvas, video
   display block
 
-sub, sup 
+sub, sup
   font-size 75%
   line-height 0
   position relative
   vertical-align baseline
 
-sup 
+sup
   top -0.5em
 
-sub 
+sub
   bottom -0.25em
 
-pre 
+pre
   white-space pre
   white-space pre-wrap
   word-wrap break-word
 
-b, strong 
+b, strong
   font-weight bold
 
-abbr[title] 
+abbr[title]
   border-bottom 1px dotted
 
-input, textarea, button, select 
+input, textarea, button, select
   margin 0
   font-size 100%
   line-height normal
@@ -82,22 +82,22 @@ input, textarea, button, select
 button,
 html input[type="button"],
 input[type="reset"],
-input[type="submit"] 
+input[type="submit"]
   cursor pointer
   -webkit-appearance button
 
 input[type="checkbox"],
-input[type="radio"] 
+input[type="radio"]
   -webkit-box-sizing border-box
   -moz-box-sizing border-box
   -ms-box-sizing border-box
   -o-box-sizing border-box
   box-sizing border-box
 
-textarea 
+textarea
   overflow auto
 
-table 
+table
     border-collapse collapse
     border-spacing 0
 
@@ -109,14 +109,14 @@ table
 *
 */
 
-figure 
+figure
   position relative
 
-figure img, figure object, figure embed, figure video 
+figure img, figure object, figure embed, figure video
   max-width 100%
   display block
 
-img 
+img
   border 0
   -ms-interpolation-mode bicubic
 
@@ -134,17 +134,17 @@ body
   font-size (font-size / 16) * 1em
   line-height (line / em) * 1em
 
-.small 
+.small
   /* 13px / 18px */
   font-size ((font-size*0.8125) / em) * 1em
   line-height ((line*0.75) / (font-size*0.8125)) * 1em
 
-.normal, h3 
+.normal, h3
   /* 16px / 24px */
   font-size (font-size / em) * 1em
   line-height (line / em) * 1em /* 24 */
 
-.large, h2, h1 
+.large, h2, h1
   /* 26 / 36px */
   font-size (26 / em) * 1em
   line-height ((line*1.5) / 26) * 1em
@@ -154,15 +154,15 @@ hude(n=1)
   font-size (42 / em) * 1em
   line-height ((line*2) / 42) * 1em
 
-.huge 
+.huge
   hude()
 
-.massive 
+.massive
   /* 68px / 72px */
   font-size (68 / em) * 1em
   line-height ((line*3) / 68) * 1em
 
-.gigantic 
+.gigantic
   /* 110px / 120px */
   font-size (110 / em) * 1em
   line-height ((line*5) / 110) * 1em
@@ -177,16 +177,16 @@ hude(n=1)
 *
 */
 
-header, #twoway 
+header, #twoway
   margin 0 column
 
-h1, h2 
+h1, h2
   margin (24/26*1em) 0 (36/26*1em)
 
-h2 
+h2
   font-weight normal
 
-h3 
+h3
   margin (24/em)*1em 0 (24/em) * 1em
 
 /*
@@ -194,7 +194,7 @@ h3
 *  Note box-sizing will not work in IE6-7
 */
 
-.wrapper 
+.wrapper
   padding 0 ((line/2)/em) * 1em
   -webkit-box-sizing border-box
   -moz-box-sizing border-box
@@ -209,26 +209,26 @@ h3
 *
 */
 
-.ie body 
+.ie body
   width (640/em) * 1em
   margin 0 auto
   font-size ((font-size + 1) / em) * 1em
 
-.ie h1 
+.ie h1
   hude()
   margin (48/42*1em) 0 (24/42*1em)
 
 /* @media screen and (min-width: 640px) */
-@media screen and (min-width: 40em) 
+@media screen and (min-width: 40em)
 
-  body 
+  body
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size ((font-size + 1) / em) * 1em
-  
-  h1 
+
+  h1
     hude()
     margin (48/42*1em) 0 (24/42*1em)
-  
+
 
 
 /*
@@ -242,66 +242,66 @@ h3
 */
 
 /* @media screen and (min-width: 720px) */
-@media screen and (min-width: 45em) 
+@media screen and (min-width: 45em)
 
-  body 
+  body
     /* Reset baseline grid to 16/16 = 1 */
     font-size ((font-size) / em) * 1em
-  
-  #twoway .wrapper 
+
+  #twoway .wrapper
     float left
     width 50%
-  
+
 
 
 /* @media screen and (min-width: 888px) */
-@media screen and (min-width: 55.5em) 
+@media screen and (min-width: 55.5em)
 
-  body 
+  body
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size ((font-size + 1) / em) * 1em
-  
+
 
 /* @media screen and (min-width: 984px) */
-@media screen and (min-width: 61.5em) 
+@media screen and (min-width: 61.5em)
 
-  body 
+  body
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size ((font-size) / em) * 1em
-  
-  header, #twoway 
+
+  header, #twoway
     margin 0 column*3
-  
+
 
 
 /* @media screen and (min-width: 1200px) */
-@media screen and (min-width: 75em) 
+@media screen and (min-width: 75em)
 
-  body 
+  body
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size ((font-size + 1) / em) * 1em
-  
+
 
 
 /* @media screen and (min-width: 1392px) */
-@media screen and (min-width: 87em) 
+@media screen and (min-width: 87em)
 
-  body 
+  body
     /* Reset baseline grid to 16/16 = 1.0 */
     font-size ((font-size) / em) * 1em
-  
-  header, #twoway 
+
+  header, #twoway
     margin 0 column*5
-  
+
 
 
 /* @media screen and (min-width: 1680px) */
-@media screen and (min-width: 105em) 
+@media screen and (min-width: 105em)
 
-  body 
+  body
     /* Zoom baseline grid to 17/16 = 1.0625 */
     font-size ((font-size + 1) / em) * 1em
-  
+
 
 
 /*
@@ -315,28 +315,28 @@ h3
 */
 
 /* @media screen and (min-width: 1872px) */
-@media screen and (min-width: 117em) 
+@media screen and (min-width: 117em)
 
-  header, #twoway 
+  header, #twoway
     margin 0 column*1
-  
-  header .wrapper 
+
+  header .wrapper
     width 37.5%
     margin-left 25%
-  
-  #twoway .wrapper 
+
+  #twoway .wrapper
     width 25%
-  
-  #twoway .wrapperfirst-child 
+
+  #twoway .wrapperfirst-child
     margin-left 25%
-  
+
 
 
 /* @media screen and (min-width: 2080px) */
-@media screen and (min-width: 130em) 
+@media screen and (min-width: 130em)
 
-  body 
+  body
     /* Zoom baseline grid to 18/16 = 1.125 */
     font-size ((font-size + 2) / em) * 1em
     max-width (2560/em) * 1em
-  
+

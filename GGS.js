@@ -3,7 +3,7 @@
 *  Golden Gridlet (1.01) 	<http://goldengridsystem.com/>
 *  by Joni Korpi 			<http://jonikorpi.com/>
 *  licensed under MIT 		<http://opensource.org/licenses/mit-license.php>
-*	
+*
 */
 
 var guideColor = 'rgb(255,195,0)';
@@ -20,9 +20,9 @@ var eightColBreakpoint = ((720-1) / baseFontSize)+'em';
 var sixteenColBreakpoint = ((1872-1) / baseFontSize)+'em';
 
 /*
-*  Note that the script might not work as expected if 
-*  the <body> element of your page has a set width and 
-*  position: relative;, because the guides are appended 
+*  Note that the script might not work as expected if
+*  the <body> element of your page has a set width and
+*  position: relative;, because the guides are appended
 *  inside <body>, but positioned in relation to <html>.
 *
 *  Also note that the baseline grid doesn't really align
@@ -70,7 +70,7 @@ function setHeights() {
 }
 
 ender.domReady(function () {
-	
+
 /* 	Add control classes and switch element */
 	ender('body').addClass('ggs-hidden ggs-animated').append('<div id="ggs-switch"><div class="ggs-switchBar"></div><div class="ggs-switchBar"></div><div class="ggs-switchBar"></div></div>');
 
@@ -109,19 +109,19 @@ ender.domReady(function () {
         .ggs-line {border-top: 1px dotted '+guideColor+'; height: '+baselineGridHeight+'; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box;}\
         @media screen and (max-width: '+(eightColBreakpoint)+'){.ggs-2,.ggs-6,.ggs-10,.ggs-14{display:none;}}\
         @media screen and (max-width: '+(sixteenColBreakpoint)+'){.ggs-1,.ggs-3,.ggs-5,.ggs-7,.ggs-9,.ggs-11,.ggs-13,.ggs-15{display:none;}}\
-    ';	
+    ';
 
 /* 	Create guides */
 	for (i=0; i<=16; i++) {
 		ender('body').append(ender('<div class="ggs-guide ggs-'+i+'"><div></div></div>'));
 	};
 	ender('body').append(ender('<div id="ggs-baseline-container"></div>'));
-	
+
 /* 	Append CSS */
 	(function(d,u) {
 		if(d.createStyleSheet) {
 			d.createStyleSheet( u );
-		} 
+		}
 		else {
 			var css=d.createElement('style');
 			css.setAttribute("type","text/css");
@@ -129,10 +129,10 @@ ender.domReady(function () {
 			d.getElementsByTagName("head")[0].appendChild(css);
 		}
 	}(document, styles))
-	
+
 /* 	Resize guides when window size changes */
 	ender(window).on('resize', setHeights);
-	
+
 /* 	Add listeners for switch element */
 	ender('#ggs-switch').click(function(){
 		if (ender('body').hasClass('ggs-hidden')) {
@@ -155,5 +155,5 @@ ender.domReady(function () {
 			);
 		}
 	});
-	
+
 });

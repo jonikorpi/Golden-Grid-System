@@ -3,7 +3,7 @@
 *  Golden Grid System (1.01)	<http://goldengridsystem.com/>
 *  by Joni Korpi 				<http://jonikorpi.com/>
 *  licensed under MIT			<http://opensource.org/licenses/mit-license.php>
-*	
+*
 */
 /*
 *
@@ -251,12 +251,12 @@ h3 {
 @media screen and (min-width: 40em) {
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
-  
+
     font-size: 1.0625em;
   }
   h1 {
     /* 42px / 48px */
-  
+
     font-size: 2.625em;
     line-height: 1.1428571428571428em;
     margin: 1.1428571428571428em 0 0.5714285714285714em;
@@ -268,14 +268,14 @@ h3 {
 *  ----------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8   |   Margin
 *  5.55555% | %  12.5  25.0  37.5  50.0  62.5  75.0  87.5  100 | 5.55555%
-*	
+*
 *
 */
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
   body {
     /* Reset baseline grid to 16/16 = 1 */
-  
+
     font-size: 1em;
   }
   #twoway .wrapper {
@@ -287,7 +287,7 @@ h3 {
 @media screen and (min-width: 55.5em) {
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
-  
+
     font-size: 1.0625em;
   }
 }
@@ -295,7 +295,7 @@ h3 {
 @media screen and (min-width: 61.5em) {
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
-  
+
     font-size: 1em;
   }
   header, #twoway {
@@ -306,7 +306,7 @@ h3 {
 @media screen and (min-width: 75em) {
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
-  
+
     font-size: 1.0625em;
   }
 }
@@ -314,7 +314,7 @@ h3 {
 @media screen and (min-width: 87em) {
   body {
     /* Reset baseline grid to 16/16 = 1.0 */
-  
+
     font-size: 1em;
   }
   header, #twoway {
@@ -325,7 +325,7 @@ h3 {
 @media screen and (min-width: 105em) {
   body {
     /* Zoom baseline grid to 17/16 = 1.0625 */
-  
+
     font-size: 1.0625em;
   }
 }
@@ -335,7 +335,7 @@ h3 {
 *  ----------------------------------------------------------------------------------------------------------------------
 *  Margin   | #  1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16  |   Margin
 *  5.55555% | %  6.25  12.5  18.75 25.0  31.25 37.5  43.75 50.0  56.25 62.5  68.75 75.0  81.25 87.5  93.75 100 | 5.55555%
-*	
+*
 *
 */
 /* @media screen and (min-width: 1872px) */
@@ -358,7 +358,7 @@ h3 {
 @media screen and (min-width: 130em) {
   body {
     /* Zoom baseline grid to 18/16 = 1.125 */
-  
+
     font-size: 1.125em;
     max-width: 160em;
   }
