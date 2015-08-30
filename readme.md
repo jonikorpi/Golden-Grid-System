@@ -2,7 +2,7 @@
 
 A fluid-width grid system composed out of 18 even columns, two of which are used as outer margins, leaving 16 columns for use in design, which in turn can be combined into 8 columns or 4 columns as needed. They could also be doubled into 32 columns, but I don't think anyone needs a grid for 5000 CSS-px wide sites.
 
-See http://goldengridsystem.com/ for more details.
+See <http://www.jonikorpi.com/golden-grid-system/> for more details.
 
 ## File list
 
